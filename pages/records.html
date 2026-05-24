@@ -79,7 +79,7 @@ async function init() {
   };
 
   // From season standings
-  Object.entries(DB.seasons).forEach(([year, s]) => {
+  Object.entries(DB.seasons).filter(([year]) => !year.includes('_f2')).forEach(([year, s]) => {
     (s.driver_standings||[]).forEach(row => {
       initDriver(row.driver);
       driverStats[row.driver].wins += row.wins||0;
