@@ -1,28 +1,32 @@
 #!/usr/bin/env python3
 """
-F1CC Wiki — Automated JSON builder
-Reads CSVs from data/csv/ and rebuilds races_2026.json + db.json standings.
-Run locally or via GitHub Actions on CSV push.
+F1CC Wiki — Automated JSON builder for 2026 season
+Reads data/csv/F1CC_2026.csv and rebuilds races_2026.json + db.json standings.
+
+CSV Structure (2026 format):
+  Row 0-19:   Points gained table (IGNORE)
+  Row 25:     "QUALIFYING" header
+  Row 26-45:  Qualifying positions per driver per race (cols 3-30)
+  Row 51:     "F1CC" header + race codes (cols 3-30)
+  Row 52-71:  Race finishing positions per driver (cols 3-30)
+
+Fastest lap: add * after position e.g. "1*" means P1 with fastest lap
 """
 
 import json, os, re, sys
 import pandas as pd
 
 # ── Config ────────────────────────────────────────────────────────────────────
-DATA_DIR    = os.path.join(os.path.dirname(__file__), 'data')
-CSV_2026    = os.path.join(DATA_DIR, 'csv', 'F1CC_2026.csv')
-DB_PATH     = os.path.join(DATA_DIR, 'db.json')
-OUT_2026    = os.path.join(DATA_DIR, 'races_2026.json')
+DATA_DIR  = os.path.join(os.path.dirname(__file__), 'data')
+CSV_PATH  = os.path.join(DATA_DIR, 'csv', 'F1CC_2026.csv')
+DB_PATH   = os.path.join(DATA_DIR, 'db.json')
+OUT_PATH  = os.path.join(DATA_DIR, 'races_2026.json')
 
-TEAM_IDS = {
-    'VCA':'vcarb','RBR':'red_bull','FER':'ferrari','MCL':'mclaren',
-    'MER':'mercedes','AST':'aston_martin','WIL':'williams',
-    'HAA':'haas','SAU':'kick_sauber','ALP':'alpine','AUD':'audi',
-}
-RACE_PTS    = {1:25,2:18,3:15,4:12,5:10,6:8,7:6,8:4,9:2,10:1}
-SPRINT_PTS  = {1:8,2:7,3:6,4:5,5:4,6:3,7:2,8:1}
-SPRINTS     = {'CHNS','SAUS','AUSS','NETS','USAS','BRAS'}
-RACE_META   = {
+RACE_PTS   = {1:25, 2:18, 3:15, 4:12, 5:10, 6:8, 7:6, 8:4, 9:2, 10:1}
+SPRINT_PTS = {1:8,  2:7,  3:6,  4:5,  5:4,  6:3, 7:2, 8:1}
+SPRINTS    = {'CHNS','SAUS','AUSS','NETS','USAS','BRAS'}
+
+RACE_META = {
     'AUS' :{'flag':'🇦🇺','circuit':'Albert Park'},
     'CHNS':{'flag':'🇨🇳','circuit':'Shanghai Sprint'},
     'CHN' :{'flag':'🇨🇳','circuit':'Shanghai'},
@@ -53,108 +57,99 @@ RACE_META   = {
 }
 
 def parse_pos(raw):
-    """Parse a position value like '1', '1*', 'DNF', '0' (absent)."""
     s = str(raw).strip()
     if s in ('nan', '0', ''):
         return None, False
     fl = s.endswith('*')
-    s = s.rstrip('*')
-    if s.upper() in ('DNF','DSQ','RET'):
+    s = s.rstrip('*').strip()
+    if s.upper() in ('DNF', 'DSQ', 'RET'):
         return s.upper(), fl
     try:
-        return int(s), fl
+        v = int(s)
+        return (v if v > 0 else None), fl
     except ValueError:
         return None, False
 
-def find_section(df, header_text, col=2):
-    """Find the row index of a section header."""
-    for i, row in df.iterrows():
-        if str(row.iloc[col]).strip().upper() == header_text.upper():
-            return i
-    return None
-
-def build_2026():
-    if not os.path.exists(CSV_2026):
-        print(f"CSV not found: {CSV_2026}")
+def build():
+    if not os.path.exists(CSV_PATH):
+        print(f"ERROR: CSV not found at {CSV_PATH}")
         sys.exit(1)
 
-    df = pd.read_csv(CSV_2026)
+    df = pd.read_csv(CSV_PATH)
 
-    # Race codes from header row (cols 3-30)
-    races_raw = list(df.columns[3:31])
-    # Fix duplicate names (pandas adds .1 etc) — strip suffix
-    races_clean = [re.sub(r'\.\d+$', '', r) for r in races_raw]
-    print(f"Races: {races_clean}")
-
-    # ── Locate sections ──────────────────────────────────────────────────────
-    # Results: rows 0–19 (driver name in col2, flag in col1)
-    pos_rows  = df.iloc[0:20, :]
-
-    # Qualifying: header row says "QUALIFYING", data follows
-    quali_header = find_section(df, 'QUALIFYING')
-    quali_rows   = df.iloc[quali_header+1 : quali_header+21, :] if quali_header else None
-
-    # Team: header row says "F1CC", data follows
-    team_header = find_section(df, 'F1CC')
-    # The SECOND occurrence of F1CC is the teams section (first is just results label)
-    # Find both and take the second
-    f1cc_rows = []
+    # ── Race codes from the F1CC header row (row 51, cols 3-30) ───────────────
+    f1cc_header_row = None
     for i, row in df.iterrows():
         if str(row.iloc[2]).strip() == 'F1CC':
-            f1cc_rows.append(i)
-    team_header = f1cc_rows[1] if len(f1cc_rows) > 1 else None
-    team_rows   = df.iloc[team_header+1 : team_header+21, :] if team_header else None
+            f1cc_header_row = i
+            break
+    if f1cc_header_row is None:
+        print("ERROR: Could not find 'F1CC' header row in CSV")
+        sys.exit(1)
 
-    print(f"Sections: quali_header={quali_header}, team_header={team_header}")
+    races_raw = [str(df.iloc[f1cc_header_row, c]).strip()
+                 for c in range(3, 31)]
+    races = [r for r in races_raw if r not in ('nan', 'TOTAL', '')]
+    print(f"Races found: {races}")
+
+    # ── Results rows (immediately after F1CC header) ──────────────────────────
+    results_start = f1cc_header_row + 1
+    results_end   = results_start + 21  # max 20 drivers + buffer
+
+    # ── Qualifying rows (after QUALIFYING header, row 25 area) ───────────────
+    quali_header_row = None
+    for i, row in df.iterrows():
+        if str(row.iloc[2]).strip() == 'QUALIFYING':
+            quali_header_row = i
+            break
+    quali_start = (quali_header_row + 1) if quali_header_row is not None else None
 
     # ── Build lookup maps ─────────────────────────────────────────────────────
-    def build_map(rows, col_start=3, col_end=31):
+    def make_map(start, end):
         m = {}
-        if rows is None:
-            return m
-        for _, row in rows.iterrows():
+        for i in range(start, min(end, len(df))):
+            row = df.iloc[i]
             name = str(row.iloc[2]).strip()
-            if name in ('nan', ''):
-                continue
-            m[name] = [str(row.iloc[c]) for c in range(col_start, col_end)]
+            if not name or name == 'nan':
+                break
+            m[name] = [str(row.iloc[c]).strip() for c in range(3, 31)]
         return m
 
-    pos_map   = build_map(pos_rows)
-    quali_map = build_map(quali_rows) if quali_rows is not None else {}
-    team_map  = build_map(team_rows)  if team_rows  is not None else {}
+    pos_map   = make_map(results_start, results_end)
+    quali_map = make_map(quali_start, quali_start + 21) if quali_start else {}
 
-    # ── Build race results ────────────────────────────────────────────────────
+    print(f"Drivers in results: {list(pos_map.keys())}")
+
+    # ── Load db.json to get team assignments ──────────────────────────────────
     with open(DB_PATH) as f:
         db = json.load(f)
 
-    existing_races = {r['name']: r for r in db['seasons'].get('2026', {}).get('calendar', [])}
+    # Build driver→team map from 2026 driver_standings stints
+    driver_team = {}
+    for row in db['seasons']['2026']['driver_standings']:
+        driver_team[row['driver']] = row.get('team')
+
+    # ── Build race results ────────────────────────────────────────────────────
     races_out = []
+    for rnd_idx, rcode in enumerate(races):
+        is_sprint = rcode in SPRINTS
+        pts_table = SPRINT_PTS if is_sprint else RACE_PTS
+        meta      = RACE_META.get(rcode, {})
+        entries   = []
 
-    for rnd_idx, rcode in enumerate(races_clean):
-        is_sprint  = rcode in SPRINTS
-        meta       = RACE_META.get(rcode, {})
-        pts_table  = SPRINT_PTS if is_sprint else RACE_PTS
-
-        entries = []
         for driver, pos_vals in pos_map.items():
             if rnd_idx >= len(pos_vals):
                 continue
             pos, fl = parse_pos(pos_vals[rnd_idx])
-            if pos is None:
-                continue  # absent / not entered
+            if pos is None and not fl:
+                continue  # not entered
 
-            # Team from team_map
-            t_raw = team_map.get(driver, [None]*28)
-            t_code = t_raw[rnd_idx] if rnd_idx < len(t_raw) else 'nan'
-            team = TEAM_IDS.get(str(t_code).strip())
-
-            # Quali position
-            q_vals = quali_map.get(driver, [None]*28)
-            q_raw  = q_vals[rnd_idx] if rnd_idx < len(q_vals) else None
+            # Qualifying position
+            q_vals    = quali_map.get(driver, [])
+            q_raw     = q_vals[rnd_idx] if rnd_idx < len(q_vals) else None
             try:
                 quali_pos = int(str(q_raw).strip())
-                if quali_pos == 0:
-                    quali_pos = None
+                quali_pos = quali_pos if quali_pos > 0 else None
             except (ValueError, TypeError):
                 quali_pos = None
 
@@ -167,17 +162,17 @@ def build_2026():
                 pts = 0
 
             entries.append({
-                'driver':     driver,
-                'pos':        pos,
-                'team':       team,
+                'driver':      driver,
+                'pos':         pos,
+                'team':        driver_team.get(driver),
                 'fastest_lap': fl,
-                'quali_pos':  quali_pos,
-                'points':     pts,
+                'quali_pos':   quali_pos,
+                'points':      pts,
             })
 
         entries.sort(key=lambda e: e['pos'] if isinstance(e['pos'], int) else 99)
+        has_results = bool(entries)
 
-        has_results = any(isinstance(e['pos'], int) or e['pos'] in ('DNF','DSQ') for e in entries)
         races_out.append({
             'round':   rnd_idx + 1,
             'id':      f"{rcode.lower()}_r{rnd_idx+1}",
@@ -190,41 +185,38 @@ def build_2026():
             'results': entries,
         })
 
-    # ── Update db.json driver standings ──────────────────────────────────────
-    driver_stats = {}
+    # ── Update db.json standings ──────────────────────────────────────────────
+    stats = {}
     for race in races_out:
         for e in race['results']:
             d = e['driver']
-            if d not in driver_stats:
-                driver_stats[d] = {'wins':0,'podiums':0,'fl':0,'poles':0,'races':0,'points':0}
-            driver_stats[d]['races']  += 1
-            driver_stats[d]['points'] += e['points']
-            if isinstance(e['pos'], int) and e['pos'] == 1:
-                driver_stats[d]['wins'] += 1
-            if isinstance(e['pos'], int) and e['pos'] <= 3:
-                driver_stats[d]['podiums'] += 1
-            if e['fastest_lap']:
-                driver_stats[d]['fl'] += 1
-            if e.get('quali_pos') == 1:
-                driver_stats[d]['poles'] += 1
+            if d not in stats:
+                stats[d] = {'wins':0,'podiums':0,'fl':0,'poles':0,'races':0,'points':0}
+            stats[d]['races']  += 1
+            stats[d]['points'] += e['points']
+            if isinstance(e['pos'], int):
+                if e['pos'] == 1: stats[d]['wins']    += 1
+                if e['pos'] <= 3: stats[d]['podiums']  += 1
+            if e['fastest_lap']:          stats[d]['fl']    += 1
+            if e.get('quali_pos') == 1:   stats[d]['poles'] += 1
 
-    # Update 2026 driver standings in db
     s26 = db['seasons']['2026']
     for row in s26['driver_standings']:
-        s = driver_stats.get(row['driver'], {})
-        row['wins']         = s.get('wins', 0)
-        row['podiums']      = s.get('podiums', 0)
-        row['fastest_laps'] = s.get('fl', 0)
-        row['poles']        = s.get('poles', 0)
-        row['races']        = s.get('races', 0)
-        row['points']       = s.get('points', 0)
+        s = stats.get(row['driver'], {})
+        row.update({
+            'wins':         s.get('wins', 0),
+            'podiums':      s.get('podiums', 0),
+            'fastest_laps': s.get('fl', 0),
+            'poles':        s.get('poles', 0),
+            'races':        s.get('races', 0),
+            'points':       s.get('points', 0),
+        })
 
-    # Re-sort standings by points
     s26['driver_standings'].sort(key=lambda x: -x['points'])
     for i, row in enumerate(s26['driver_standings']):
         row['pos'] = i + 1
 
-    # Update constructor standings from race results
+    # Constructor standings
     team_pts = {}
     for race in races_out:
         for e in race['results']:
@@ -232,24 +224,25 @@ def build_2026():
             if t:
                 team_pts[t] = team_pts.get(t, 0) + e['points']
 
-    s26['constructor_standings'] = sorted(
-        [{'team':t,'points':v,'pos':i+1,'wins':0,'podiums':0}
-         for i,(t,v) in enumerate(sorted(team_pts.items(), key=lambda x:-x[1]))],
-        key=lambda x: x['pos']
-    )
-    # If no points yet keep pre-season lineup
-    if not any(r['points'] for r in s26['constructor_standings']):
-        pass  # keep as is
+    if any(team_pts.values()):  # only update if there are actual points
+        s26['constructor_standings'] = sorted(
+            [{'team':t,'points':v,'wins':0,'podiums':0,'pos':i+1}
+             for i,(t,v) in enumerate(sorted(team_pts.items(), key=lambda x:-x[1]))],
+            key=lambda x: x['pos']
+        )
 
     # ── Write outputs ─────────────────────────────────────────────────────────
-    with open(OUT_2026, 'w', encoding='utf-8') as f:
+    with open(OUT_PATH, 'w', encoding='utf-8') as f:
         json.dump({'races': races_out}, f, indent=2, ensure_ascii=False)
-    print(f"✓ {OUT_2026}: {len(races_out)} races, "
-          f"{sum(1 for r in races_out if r['status']=='complete')} complete")
+    complete = sum(1 for r in races_out if r['status'] == 'complete')
+    print(f"✓ races_2026.json: {len(races_out)} races, {complete} complete")
 
     with open(DB_PATH, 'w', encoding='utf-8') as f:
         json.dump(db, f, indent=2, ensure_ascii=False)
-    print(f"✓ {DB_PATH}: standings updated")
+    print(f"✓ db.json: standings updated")
+    print(f"\nTop 5 standings:")
+    for row in s26['driver_standings'][:5]:
+        print(f"  P{row['pos']} {row['driver']}: {row['points']}pts")
 
 if __name__ == '__main__':
-    build_2026()
+    build()
