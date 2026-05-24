@@ -159,8 +159,8 @@ async function init() {
     }
   }
 
-  // Then enrich with individual race files
-  const allSeasonYears = Object.keys(DB.seasons);
+  // Then enrich with individual race files (F1 only for career totals)
+  const allSeasonYears = Object.keys(DB.seasons).filter(k => !k.includes('_f2'));
   for (const year of allSeasonYears) {
     try {
       const raceResp = await fetch(`../data/races_${year}.json`);
@@ -215,7 +215,7 @@ async function init() {
   </div>`;
 
   // Career stats (live)
-  html += `<div class="section-header mb-1"><span class="section-title">Career Statistics <span style="font-size:10px;color:var(--blue-accent);letter-spacing:0;text-transform:none;font-weight:400">(live · updates with each race)</span></span></div>
+  html += `<div class="section-header mb-1"><span class="section-title">F1CC Career Statistics <span style="font-size:10px;color:var(--blue-accent);letter-spacing:0;text-transform:none;font-weight:400">(live · updates with each race)</span></span></div>
   <div class="career-grid">
     <div class="stat-card"><div class="s-label">Races</div><div class="s-val">${careerRaces}</div></div>
     <div class="stat-card"><div class="s-label">Wins</div><div class="s-val" style="color:var(--gold)">${careerWins}</div></div>
