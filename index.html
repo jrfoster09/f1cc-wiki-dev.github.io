@@ -26,12 +26,14 @@
     .nav-tile-desc { font-size: 12px; color: var(--text-secondary); line-height: 1.5; }
     .sidebar-card { background: var(--navy-mid); border: 1px solid var(--blue-border); border-radius: var(--radius-lg); padding: 1.25rem; margin-bottom: 1rem; }
     .sidebar-title { font-family: var(--font-display); font-size: 12px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.75rem; }
-    .champ-card { display: flex; align-items: center; gap: 10px; padding: 8px 0; border-bottom: 1px solid rgba(59,141,224,0.08); }
+    .champ-card { display: flex; align-items: center; padding: 10px 0; border-bottom: 1px solid rgba(59,141,224,0.08); gap: 10px; }
     .champ-card:last-child { border-bottom: none; }
-    .champ-num { font-family: var(--font-display); font-size: 18px; font-weight: 700; color: var(--gold); width: 40px; flex-shrink: 0; }
-    .champ-info .champ-name { font-size: 13px; font-weight: 500; color: var(--text-primary); display:flex; align-items:center; gap:4px; }
-    .champ-info .champ-name img.emoji { height:1em; width:1em; vertical-align:middle; }
-    .champ-info .champ-meta { font-size: 11px; color: var(--text-secondary); }
+    .champ-num { font-family: var(--font-display); font-size: 20px; font-weight: 700; color: var(--gold); min-width: 64px; flex-shrink: 0; }
+    .champ-flag { flex-shrink: 0; }
+    .champ-flag img.emoji { height: 20px; width: 20px; vertical-align: middle; display: block; }
+    .champ-info { flex: 1; }
+    .champ-info .champ-name { font-size: 13px; font-weight: 600; color: var(--text-primary); }
+    .champ-info .champ-meta { font-size: 11px; color: var(--text-secondary); margin-top: 1px; }
     .latest-race-name { font-family: var(--font-display); font-size: 18px; font-weight: 700; color: var(--text-primary); margin-bottom: 6px; }
     .latest-race-meta { font-size: 12px; color: var(--text-secondary); margin-bottom: 12px; }
     .podium-mini { display: flex; flex-direction: column; gap: 6px; }
@@ -212,8 +214,9 @@ async function init() {
     const t = db.teams[s.champion_constructor];
     return `<div class="champ-card">
       <div class="champ-num">${year}</div>
+      <div class="champ-flag">${d ? d.flag_emoji : ''}</div>
       <div class="champ-info">
-        <div class="champ-name">${d ? d.flag_emoji + ' ' + d.name : '—'}</div>
+        <div class="champ-name">${d ? d.name : '—'}</div>
         <div class="champ-meta">${t ? t.short : '—'}</div>
       </div>
     </div>`;
