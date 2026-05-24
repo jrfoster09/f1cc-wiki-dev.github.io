@@ -138,10 +138,11 @@ async function init() {
   document.getElementById('hero-eye').textContent = `Driver Profile`;
   document.getElementById('hero-title').textContent = driver.name;
 
-  const seasons = Object.keys(driver.seasons || {}).sort((a,b) => b-a);
-  const currentTeamId = driver.seasons[seasons[0]]?.team;
+  const seasons = Object.keys(driver.seasons || {}).sort((a,b) => b.localeCompare(a));
+  const f1Seasons = seasons.filter(k => !k.includes('_f2'));
+  const currentTeamId = driver.seasons[f1Seasons[0] || seasons[0]]?.team;
   const currentTeam = DB.teams[currentTeamId];
-  document.getElementById('hero-sub').textContent = currentTeam ? `${currentTeam.name} · Active since ${seasons[seasons.length-1]}` : '';
+  document.getElementById('hero-sub').textContent = currentTeam ? `${currentTeam.name} · Active since ${f1Seasons[f1Seasons.length-1] || seasons[seasons.length-1]}` : '';
 
   // Compute live career stats from all race files
   let careerWins = 0, careerPodiums = 0, careerPoints = 0, careerRaces = 0,
@@ -190,7 +191,7 @@ async function init() {
     return `background:rgba(${r},${g},${b},0.18);color:${h};border-color:rgba(${r},${g},${b},0.4)`;
   };
 
-  const latestYear = seasons[0];
+  const latestYear = f1Seasons[0] || seasons[0];
   const latestSeasonData = driver.seasons[latestYear];
   const displayCarNumber = (typeof latestSeasonData === 'object' && latestSeasonData.number) ? latestSeasonData.number : (driver.number || '');
   let html = '';
@@ -208,7 +209,7 @@ async function init() {
       <div class="driver-header-meta">
         <span>${driver.flag_emoji}</span>`;
   if (currentTeam) html += `<span class="team-pill" style="${teamStyle(currentTeamId)}">${currentTeam.name}</span>`;
-  html += `<span style="color:var(--text-muted)">Active ${seasons[seasons.length-1]}–${seasons[0]}</span>
+  html += `<span style="color:var(--text-muted)">Active ${f1Seasons[f1Seasons.length-1] || seasons[seasons.length-1]}–${f1Seasons[0] || seasons[0]}</span>
       </div>
       ${driver.bio ? `<p style="margin-top:10px;font-size:14px;color:var(--text-secondary);max-width:540px;line-height:1.6">${driver.bio}</p>` : ''}
     </div>

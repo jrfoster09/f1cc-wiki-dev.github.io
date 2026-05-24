@@ -114,7 +114,8 @@
     grid.innerHTML = drivers.map(([id, d]) => {
       // Sezonları en yeniden en eskiye sırala (2026 > 2025)
       const seasons = Object.keys(d.seasons||{}).sort((a,b)=>b.localeCompare(a));
-      const latestSeasonKey = seasons[0];
+      const f1Seasons = seasons.filter(k => !k.includes('_f2'));
+      const latestSeasonKey = f1Seasons[0] || seasons[0];
       const latestTeamId = d.seasons[latestSeasonKey]?.team;
       const latestTeam = DB.teams[latestTeamId];
 
@@ -226,7 +227,8 @@
     ALL_DRIVERS = Object.entries(DB.drivers).filter(([id]) => !id.endsWith('_2024'));
     ALL_DRIVERS.forEach(([id, d]) => {
       d.stats = { wins: 0, podiums: 0, points: 0 };
-      Object.values(DB.seasons).forEach(s => {
+      Object.entries(DB.seasons).forEach(([year, s]) => {
+        if (year.includes('_f2')) return; // F1CC only
         const row = (s.driver_standings||[]).find(r => r.driver === id);
         if (row) {
           d.stats.wins += row.wins || 0;
