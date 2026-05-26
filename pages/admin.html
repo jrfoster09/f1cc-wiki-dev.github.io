@@ -412,12 +412,12 @@
 
     <div style="display:grid;grid-template-columns:1fr 380px;gap:1.5rem">
 
-      <!-- LEFT: Main sync button -->
+      <!-- LEFT: Auto-sync info -->
       <div>
         <div class="card mb-2">
-          <div class="section-title mb-1">🔄 One-Click Sync</div>
+          <div class="section-title mb-1">🔄 Auto-Sync Active</div>
           <p style="font-size:13px;color:var(--text-secondary);margin-bottom:1.25rem;line-height:1.6">
-            Clicking the button below triggers a <strong>GitHub Actions workflow</strong> that:
+            The wiki syncs <strong>automatically every hour</strong> from Google Sheets — no action needed after a race. Each run:
           </p>
           <div class="instruction-steps" style="margin-bottom:1.25rem">
             <div class="step"><div class="step-num">1</div><div class="step-text">Fetches the Google Sheet directly (F1 + F2 in one go)</div></div>
@@ -425,23 +425,15 @@
             <div class="step"><div class="step-num">3</div><div class="step-text">Commits the changes — site updates within ~60 seconds</div></div>
           </div>
 
-          <div class="form-group" style="margin-bottom:14px">
-            <label class="form-label" for="sync-token">Dispatch Token</label>
-            <input class="form-input" type="password" id="sync-token" placeholder="Paste your Actions token here…" autocomplete="off"
-              oninput="localStorage.setItem('sync_token_hint', this.value.slice(0,4))">
-            <div style="font-size:11px;color:var(--text-muted);margin-top:5px">
-              See the setup card → for how to create this once-only token.
-              It's only kept in memory while the tab is open.
-            </div>
-          </div>
-
-          <button onclick="syncTriggerAction()" id="sync-trigger-btn"
-            style="width:100%;background:#30a860;border:none;color:#fff;font-family:var(--font-display);
+          <a id="sync-actions-link" href="#" target="_blank"
+            style="display:block;width:100%;background:#30a860;color:#fff;font-family:var(--font-display);
                    font-size:15px;font-weight:700;padding:14px;border-radius:var(--radius);
-                   cursor:pointer;transition:background 0.15s;letter-spacing:0.5px">
-            🔄 Sync from Google Sheets
-          </button>
-          <div id="sync-status" style="margin-top:12px;font-size:13px;min-height:20px"></div>
+                   text-align:center;text-decoration:none;letter-spacing:0.5px;box-sizing:border-box">
+            ▶ Trigger Manual Sync on GitHub
+          </a>
+          <div style="margin-top:10px;font-size:12px;color:var(--text-muted);text-align:center">
+            Opens GitHub Actions — click <strong>Run workflow → Run workflow</strong>
+          </div>
         </div>
 
         <!-- Sheet info (read-only reference) -->
@@ -465,21 +457,19 @@
       <!-- RIGHT: One-time setup card -->
       <div>
         <div class="card" style="position:sticky;top:72px">
-          <div class="section-title mb-1">🔑 One-Time Token Setup</div>
+          <div class="section-title mb-1">🔑 One-Time Setup</div>
           <p style="font-size:12px;color:var(--text-muted);margin-bottom:1rem;line-height:1.5">
-            You need a token that can <em>trigger</em> Actions — it cannot read code or secrets.
-            Create it once and paste it into the field on the left each session.
+            You only need to do this once. It lets the workflow commit the updated JSON files back to your repo automatically.
           </p>
           <div class="instruction-steps">
             <div class="step"><div class="step-num">1</div><div class="step-text">Go to <a href="https://github.com/settings/tokens?type=beta" target="_blank" style="color:var(--blue-bright)">GitHub → Settings → Developer settings → Fine-grained tokens</a></div></div>
-            <div class="step"><div class="step-num">2</div><div class="step-text">Click <strong>Generate new token</strong>. Set expiry to 1 year.</div></div>
-            <div class="step"><div class="step-num">3</div><div class="step-text">Under <strong>Repository access</strong>, select <em>Only selected repositories</em> → pick <code>f1cc-wiki-dev.github.io</code></div></div>
-            <div class="step"><div class="step-num">4</div><div class="step-text">Under <strong>Permissions → Repository</strong>, set <strong>Actions → Read and Write</strong>. Nothing else needed.</div></div>
-            <div class="step"><div class="step-num">5</div><div class="step-text">Click <strong>Generate</strong>, copy the token, paste it into the Dispatch Token field. Done! ✓</div></div>
+            <div class="step"><div class="step-num">2</div><div class="step-text">Click <strong>Generate new token</strong>. Set expiry to 1 year. Select your wiki repo only.</div></div>
+            <div class="step"><div class="step-num">3</div><div class="step-text">Under <strong>Permissions → Repository</strong>, set <strong>Actions → Read &amp; Write</strong> and <strong>Contents → Read &amp; Write</strong>.</div></div>
+            <div class="step"><div class="step-num">4</div><div class="step-text">In your repo go to <strong>Settings → Secrets and variables → Actions → New repository secret</strong>. Name it <code>PAT_TOKEN</code>, paste the token. Done! ✓</div></div>
           </div>
           <div style="margin-top:1rem;padding:10px;background:rgba(59,141,224,0.07);border-radius:var(--radius);font-size:12px;color:var(--text-muted)">
-            <strong style="color:var(--text-secondary)">Why is this safe?</strong><br>
-            This token can only trigger workflow runs. It cannot read your repo, push code, or access any secrets. The worst someone could do with it is trigger the sync action — which just re-reads the same public Google Sheet.
+            <strong style="color:var(--text-secondary)">That's all you need.</strong><br>
+            No token to paste each session. The sync runs automatically every hour, and the manual trigger above requires no extra credentials.
           </div>
         </div>
       </div>
@@ -622,6 +612,10 @@ async function init() {
 
   // Add default 15 F2 rows
   for (let i = 0; i < 15; i++) addF2Row();
+
+  // Set sync link to GitHub Actions page
+  const syncLink = document.getElementById('sync-actions-link');
+  if (syncLink) syncLink.href = `https://github.com/${SYNC_REPO}/actions/workflows/${SYNC_WORKFLOW}`;
 }
 
 function onSeasonChange() {
