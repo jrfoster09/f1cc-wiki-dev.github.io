@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#060e1c">
   <title>Teams — F1CC Wiki</title>
   <link rel="stylesheet" href="../css/style.css">
   <style>
@@ -13,7 +14,7 @@
       text-decoration: none; display: block; transition: all 0.15s;
       border-top: 3px solid var(--team-color, var(--blue-accent));
     }
-    .team-tile:hover { transform: translateY(-2px); background: rgba(59,141,224,0.05); border-color: var(--team-color); }
+    .team-tile:hover { background: rgba(59,141,224,0.05); border-color: var(--team-color); }
     .team-tile-header { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
     .team-tile-name { font-family: var(--font-display); font-size: 18px; font-weight: 700; color: var(--text-primary); }
     .team-tile-drivers { font-size: 12px; color: var(--text-secondary); margin-bottom: 10px; }
@@ -35,21 +36,26 @@
       gap: 8px;
     }
     .heading-f1 { border-bottom: 3px solid #E8002D; }
-    .heading-f2 { border-bottom: 3px solid #0090D0; }
+    .heading-f2 { border-bottom: 3px solid var(--f2-accent); }
   </style>
-  <script src="https://unpkg.com/twemoji@14.0.2/dist/twemoji.min.js" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/twemoji@14.0.2/dist/twemoji.min.js" crossorigin="anonymous" async></script>
 </head>
 <body>
 
+<a href="#main-content" class="skip-link">Skip to content</a>
+
 <nav id="nav">
   <a class="nav-logo" href="../index.html"><div class="nav-logo-pip"></div>F1CC WIKI</a>
-  <ul class="nav-links">
+  <ul class="nav-links" id="nav-links">
     <li><a href="../index.html">Home</a></li>
     <li><a href="seasons.html">Seasons</a></li>
     <li><a href="drivers.html">Drivers</a></li>
     <li><a href="teams.html" class="active">Teams</a></li>
     <li><a href="records.html">Records</a></li>
   </ul>
+  <button class="nav-hamburger" id="nav-hamburger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="nav-links">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
 <div class="hero-strip">
@@ -58,9 +64,9 @@
   <p class="hero-sub">All constructors that have competed in the F1 Community Career. Click a team for their full history and driver lineups.</p>
 </div>
 
-<div class="page-container">
+<main class="page-container" id="main-content">
   <div class="section-header mb-2" style="margin-bottom: 10px;">
-    <span class="section-title" id="team-count">Teams</span>
+    <h2 class="section-title" id="team-count">Teams</h2>
   </div>
 
   <h2 class="series-heading heading-f1">🔴 Formula 1</h2>
@@ -68,7 +74,7 @@
 
   <h2 class="series-heading heading-f2">🔵 Formula 2</h2>
   <div class="team-grid" id="f2-team-grid"><div style="color:var(--text-muted)">Loading…</div></div>
-</div>
+</main>
 
 <footer><p>F1CC Wiki · <a href="../index.html">Home</a></p></footer>
 
@@ -163,9 +169,9 @@
     document.getElementById('f2-team-grid').innerHTML = renderGrid(f2Teams);
   }
 
-  init();
-  // Render flag emojis as images for cross-platform support
-  setTimeout(() => { if(window.twemoji) twemoji.parse(document.body, {folder:'svg', ext:'.svg'}); }, 500);
+  init().then(() => {
+    if (window.twemoji) twemoji.parse(document.body, {folder:'svg', ext:'.svg'});
+  });
 </script>
 </body>
 </html>

@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#060e1c">
   <title>F1CC Season — Wiki</title>
   <link rel="stylesheet" href="../css/style.css">
   <style>
@@ -25,19 +26,24 @@
     /* Yeni Filtre Konteyneri Stili */
     .filter-container { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin-bottom: 15px; }
   </style>
-  <script src="https://unpkg.com/twemoji@14.0.2/dist/twemoji.min.js" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/twemoji@14.0.2/dist/twemoji.min.js" crossorigin="anonymous" async></script>
 </head>
 <body>
 
+<a href="#main-content" class="skip-link">Skip to content</a>
+
 <nav id="nav">
   <a class="nav-logo" href="../index.html"><div class="nav-logo-pip"></div>F1CC WIKI</a>
-  <ul class="nav-links">
+  <ul class="nav-links" id="nav-links">
     <li><a href="../index.html">Home</a></li>
     <li><a href="seasons.html" data-page="seasons" class="active">Seasons</a></li>
     <li><a href="drivers.html" data-page="drivers">Drivers</a></li>
     <li><a href="teams.html" data-page="teams">Teams</a></li>
     <li><a href="records.html" data-page="records">Records</a></li>
   </ul>
+  <button class="nav-hamburger" id="nav-hamburger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="nav-links">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
 <div id="season-hero" class="hero-strip">
@@ -47,40 +53,41 @@
   <div class="hero-stats" id="hero-stats"></div>
 </div>
 
-<div class="page-container">
+<main class="page-container" id="main-content">
   <a class="back-link" href="seasons.html">← All Seasons</a>
 
   <div class="section-header mb-2" style="display:flex; flex-direction:column; align-items:flex-start;">
-    <span class="section-title">Select Championship</span>
+    <h2 class="section-title">Select Championship</h2>
 
     <div class="filter-container">
-      <select id="series-filter" style="background:var(--navy-light);border:1px solid var(--blue-border);color:var(--text-secondary);padding:6px 12px;border-radius:var(--radius);font-size:14px;outline:none;font-weight:600;">
+      <label for="series-filter" class="sr-only">Championship series</label>
+      <select id="series-filter" class="filter-select" style="background:var(--navy-light);border:1px solid var(--blue-border);color:var(--text-secondary);padding:10px 12px;min-height:44px;border-radius:var(--radius);font-size:14px;font-weight:600;">
         <option value="f1">Formula 1</option>
         <option value="f2">Formula 2</option>
       </select>
 
-      <div class="season-selector" id="season-selector"></div>
+      <div class="season-selector" id="season-selector" role="group" aria-label="Select season"></div>
     </div>
   </div>
 
-  <div class="tabs">
+  <div class="tabs" role="tablist">
     <button class="tab-btn" data-tab="drivers" data-tab-group="main">Drivers Championship</button>
     <button class="tab-btn" data-tab="constructors" data-tab-group="main">Constructors Championship</button>
     <button class="tab-btn" data-tab="races" data-tab-group="main">Race Calendar</button>
   </div>
 
   <div class="tab-panel" data-tab="drivers" data-tab-group="main">
-    <div id="driver-standings-table"></div>
+    <div class="table-scroll" id="driver-standings-table"></div>
   </div>
 
   <div class="tab-panel" data-tab="constructors" data-tab-group="main">
-    <div id="constructor-standings-table"></div>
+    <div class="table-scroll" id="constructor-standings-table"></div>
   </div>
 
   <div class="tab-panel" data-tab="races" data-tab-group="main">
     <div class="race-list" id="race-calendar"></div>
   </div>
-</div>
+</main>
 
 <footer>
   <p>F1CC Wiki · <a href="../index.html">Home</a></p>
@@ -233,7 +240,7 @@
       document.getElementById('race-calendar').innerHTML = '<p style="color:var(--text-muted)">No races scheduled yet.</p>';
     }
 
-    setTimeout(() => { if(window.twemoji) twemoji.parse(document.body, {folder:'svg',ext:'.svg'}); }, 50);
+    if (window.twemoji) twemoji.parse(document.body, {folder:'svg',ext:'.svg'});
   }
 
   // Butonları seriye göre oluşturur
