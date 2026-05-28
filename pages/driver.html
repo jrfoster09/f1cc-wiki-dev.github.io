@@ -3,8 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#060e1c">
+  <meta name="theme-color" content="#35383d">
   <title>Driver — F1CC Wiki</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="../css/style.css">
   <style>
     .driver-header { display: flex; align-items: flex-start; gap: 1.5rem; margin-bottom: 1.5rem; }
@@ -23,7 +25,6 @@
     .result-row { display: flex; align-items: center; gap: 10px; padding: 7px 0; border-bottom: 1px solid rgba(59,141,224,0.07); font-size: 13px; }
     .result-row:last-child { border-bottom: none; }
 
-    /* Driver avatar */
     .driver-avatar-lg {
       width: 80px; height: 80px;
       border-radius: 50%; flex-shrink: 0;
@@ -51,29 +52,34 @@
       box-shadow: 0 2px 4px rgba(0,0,0,0.3);
       z-index: 10;
     }
+
+    .series-tag { font-family: var(--font-display); font-size: 10px; font-weight: 800; padding: 2px 5px; border-radius: 4px; }
+    .tag-f1 { background-color: #E8002D; color: var(--text-on-dark); }
+    .tag-f2 { background-color: #0090D0; color: var(--text-on-dark); }
   </style>
-<script src="https://unpkg.com/twemoji@14.0.2/dist/twemoji.min.js" crossorigin="anonymous" async></script>
+  <script src="https://unpkg.com/twemoji@14.0.2/dist/twemoji.min.js" crossorigin="anonymous" async></script>
 </head>
 <body>
 
 <a href="#main-content" class="skip-link">Skip to content</a>
 
-<nav id="nav">
-  <a class="nav-logo" href="../index.html">
-    <div class="nav-logo-pip"></div>
-    <img src="../assets/photos/wikilogo.png" alt="Wiki Logo" class="logo-img">
-  </a>
-  <ul class="nav-links" id="nav-links">
-    <li><a href="../index.html">Home</a></li>
-    <li><a href="seasons.html">Seasons</a></li>
-    <li><a href="drivers.html" class="active">Drivers</a></li>
-    <li><a href="teams.html">Teams</a></li>
-    <li><a href="records.html">Records</a></li>
-  </ul>
-  <button class="nav-hamburger" id="nav-hamburger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="nav-links">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
+<div class="sticky-header">
+  <div class="topbar">
+    <a href="../index.html" class="brand-link"><span class="brand">F1CC <span class="brand-acc">Wiki</span></span></a>
+    <div class="tagline">Community Career &middot; Official Database</div>
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="nav-links">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav class="nav-row" id="nav-links" aria-label="Site navigation">
+    <a class="nav-link" href="../index.html">Home</a>
+    <a class="nav-link" href="seasons.html">Seasons</a>
+    <a class="nav-link active" href="drivers.html">Drivers</a>
+    <a class="nav-link" href="teams.html">Teams</a>
+    <a class="nav-link" href="records.html">Records</a>
+    <a class="nav-link news-link" href="https://thated.github.io/F1CC-News-Site/index.html" target="_blank" rel="noopener">News ↗</a>
+  </nav>
+</div>
 
 <div class="hero-strip" id="driver-hero">
   <div class="hero-eyebrow" id="hero-eye">Driver Profile</div>

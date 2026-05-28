@@ -3,12 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#060e1c">
+  <meta name="theme-color" content="#35383d">
   <title>Race Result — F1CC Wiki</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="../css/style.css">
   <style>
     .race-summary-box {
-      background: rgba(59,141,224,0.07);
+      background: rgba(235,45,42,0.07);
       border: 1px solid var(--blue-border);
       border-radius: var(--radius);
       padding: 1rem 1.25rem; margin-bottom: 1.5rem;
@@ -33,25 +35,29 @@
     .stat-mini-sub { font-size: 12px; color: var(--text-secondary); }
     @media (max-width: 700px) { .result-grid { grid-template-columns: 1fr; } }
   </style>
-<script src="https://unpkg.com/twemoji@14.0.2/dist/twemoji.min.js" crossorigin="anonymous" async></script>
+  <script src="https://unpkg.com/twemoji@14.0.2/dist/twemoji.min.js" crossorigin="anonymous" async></script>
 </head>
 <body>
 
 <a href="#main-content" class="skip-link">Skip to content</a>
 
-<nav id="nav">
-  <a class="nav-logo" href="../index.html"><div class="nav-logo-pip"></div>F1CC WIKI</a>
-  <ul class="nav-links" id="nav-links">
-    <li><a href="../index.html">Home</a></li>
-    <li><a href="seasons.html" class="active">Seasons</a></li>
-    <li><a href="drivers.html">Drivers</a></li>
-    <li><a href="teams.html">Teams</a></li>
-    <li><a href="records.html">Records</a></li>
-  </ul>
-  <button class="nav-hamburger" id="nav-hamburger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="nav-links">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
+<div class="sticky-header">
+  <div class="topbar">
+    <a href="../index.html" class="brand-link"><span class="brand">F1CC <span class="brand-acc">Wiki</span></span></a>
+    <div class="tagline">Community Career &middot; Official Database</div>
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="nav-links">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav class="nav-row" id="nav-links" aria-label="Site navigation">
+    <a class="nav-link" href="../index.html">Home</a>
+    <a class="nav-link active" href="seasons.html">Seasons</a>
+    <a class="nav-link" href="drivers.html">Drivers</a>
+    <a class="nav-link" href="teams.html">Teams</a>
+    <a class="nav-link" href="records.html">Records</a>
+    <a class="nav-link news-link" href="https://thated.github.io/F1CC-News-Site/index.html" target="_blank" rel="noopener">News ↗</a>
+  </nav>
+</div>
 
 <div id="race-hero" class="hero-strip">
   <div class="hero-eyebrow" id="hero-eye">Race Result</div>

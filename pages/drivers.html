@@ -3,8 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#060e1c">
+  <meta name="theme-color" content="#35383d">
   <title>Drivers — F1CC Wiki</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="../css/style.css">
   <style>
     .search-bar {
@@ -22,9 +24,8 @@
       border-radius: var(--radius-lg); padding: 1rem;
       text-decoration: none; display: block; transition: all 0.15s;
     }
-    .driver-tile:hover { border-color: var(--blue-accent); background: rgba(59,141,224,0.06); }
+    .driver-tile:hover { border-color: var(--blue-accent); background: rgba(235,45,42,0.06); }
 
-    /* Numara ve Bayrak Alanı */
     .driver-tile-header { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
     .driver-tile-number { font-family: var(--font-display); font-size: 18px; font-weight: 800; color: var(--text-muted); }
     .driver-tile-flag { font-size: 24px; line-height: 1; display: flex; }
@@ -32,7 +33,6 @@
     .driver-tile-name { font-family: var(--font-display); font-size: 17px; font-weight: 700; color: var(--text-primary); margin-bottom: 4px; line-height: 1.2; }
     .driver-tile-meta { font-size: 12px; color: var(--text-secondary); margin-bottom: 8px; display: flex; align-items: center; flex-wrap: wrap; gap: 6px; }
 
-    /* F1 ve F2 Etiket Stilleri */
     .series-tag { font-family: var(--font-display); font-size: 10px; font-weight: 800; padding: 2px 5px; border-radius: 4px; }
     .tag-f1 { background-color: #E8002D; color: var(--text-on-dark); }
     .tag-f2 { background-color: #0090D0; color: var(--text-on-dark); }
@@ -48,19 +48,23 @@
 
 <a href="#main-content" class="skip-link">Skip to content</a>
 
-<nav id="nav">
-  <a class="nav-logo" href="../index.html"><div class="nav-logo-pip"></div>F1CC WIKI</a>
-  <ul class="nav-links" id="nav-links">
-    <li><a href="../index.html">Home</a></li>
-    <li><a href="seasons.html">Seasons</a></li>
-    <li><a href="drivers.html" class="active">Drivers</a></li>
-    <li><a href="teams.html">Teams</a></li>
-    <li><a href="records.html">Records</a></li>
-  </ul>
-  <button class="nav-hamburger" id="nav-hamburger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="nav-links">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
+<div class="sticky-header">
+  <div class="topbar">
+    <a href="../index.html" class="brand-link"><span class="brand">F1CC <span class="brand-acc">Wiki</span></span></a>
+    <div class="tagline">Community Career &middot; Official Database</div>
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="nav-links">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav class="nav-row" id="nav-links" aria-label="Site navigation">
+    <a class="nav-link" href="../index.html">Home</a>
+    <a class="nav-link" href="seasons.html">Seasons</a>
+    <a class="nav-link active" href="drivers.html">Drivers</a>
+    <a class="nav-link" href="teams.html">Teams</a>
+    <a class="nav-link" href="records.html">Records</a>
+    <a class="nav-link news-link" href="https://thated.github.io/F1CC-News-Site/index.html" target="_blank" rel="noopener">News ↗</a>
+  </nav>
+</div>
 
 <div class="hero-strip">
   <div class="hero-eyebrow">F1CC Database</div>
