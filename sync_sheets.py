@@ -199,6 +199,13 @@ def build_races(df, main_label, quali_label, season_key, db, is_f2=False, name_t
         entries.sort(key=lambda e: e['pos'] if isinstance(e['pos'], int) else 99)
         has_results = bool(entries)
 
+        # For F2, skip placeholder sprint rounds (code not in RACE_META) that
+        # have no results yet — e.g. "SPR" placeholder for a sprint weekend
+        # that hasn't happened or didn't run in F2.
+        if is_f2 and not has_results and rcode not in RACE_META:
+            print(f'  Skipping F2 placeholder round "{rcode}" (no results, unknown code)')
+            continue
+
         # Race ID
         if is_f2:
             race_id = f'{season_key}_{str(rnd_idx + 1).zfill(2)}'
