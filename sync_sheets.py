@@ -20,7 +20,7 @@ Position encoding:
 """
 
 import json, os, sys
-from io import StringIO
+from io import StringIO, BytesIO
 
 import requests
 import pandas as pd
@@ -41,9 +41,10 @@ F2_OUT    = os.path.join(DATA_DIR, 'races_2026_f2.json')
 F1_SEASON = '2026'
 F2_SEASON = '2026_f2'
 
-RACE_PTS   = {1:25, 2:18, 3:15, 4:12, 5:10, 6:8, 7:6, 8:4, 9:2, 10:1}
-SPRINT_PTS = {1:8,  2:7,  3:6,  4:5,  5:4,  6:3, 7:2, 8:1}
-SPRINTS    = {'CHNS', 'SAUS', 'AUSS', 'NETS', 'USAS', 'BRAS'}
+RACE_PTS      = {1:25, 2:18, 3:15, 4:12, 5:10, 6:8, 7:6, 8:4, 9:2, 10:1}
+SPRINT_PTS    = {1:8,  2:7,  3:6,  4:5,  5:4,  6:3, 7:2, 8:1}
+F2_SPRINT_PTS = {1:10, 2:8,  3:6,  4:5,  5:4,  6:3, 7:2, 8:1}
+SPRINTS       = {'CHNS', 'SAUS', 'AUSS', 'NETS', 'USAS', 'BRAS'}
 
 RACE_META = {
     'AUS' : {'flag': '🇦🇺', 'circuit': 'Albert Park'},
@@ -58,6 +59,7 @@ RACE_META = {
     'MON' : {'flag': '🇲🇨', 'circuit': 'Monaco'},
     'SPA' : {'flag': '🇪🇸', 'circuit': 'Circuit de Barcelona'},
     'AUSS': {'flag': '🇦🇺', 'circuit': 'Albert Park Sprint'},
+    'SPR' : {'flag': '🏁', 'circuit': 'Sprint Race'},
     'BRI' : {'flag': '🇬🇧', 'circuit': 'Silverstone'},
     'GBR' : {'flag': '🇬🇧', 'circuit': 'Silverstone'},
     'BEL' : {'flag': '🇧🇪', 'circuit': 'Spa-Francorchamps'},
@@ -153,9 +155,16 @@ def build_races(df, main_label, quali_label, season_key, db, is_f2=False, name_t
                 driver_team[dname] = t
 
     races_out = []
+    round_num = 0
     for rnd_idx, rcode in enumerate(race_codes):
-        is_sprint = (rcode in SPRINTS) and not is_f2
-        pts_table = SPRINT_PTS if is_sprint else RACE_PTS
+        is_sprint    = (rcode in SPRINTS) and not is_f2
+        is_f2_sprint = is_f2 and rcode == 'SPR'
+        if is_f2_sprint:
+            pts_table = F2_SPRINT_PTS
+        elif is_sprint:
+            pts_table = SPRINT_PTS
+        else:
+            pts_table = RACE_PTS
         meta      = RACE_META.get(rcode, {})
         entries   = []
 
@@ -198,28 +207,22 @@ def build_races(df, main_label, quali_label, season_key, db, is_f2=False, name_t
 
         entries.sort(key=lambda e: e['pos'] if isinstance(e['pos'], int) else 99)
         has_results = bool(entries)
+        round_num  += 1
 
-        # For F2, skip placeholder sprint rounds (code not in RACE_META) that
-        # have no results yet — e.g. "SPR" placeholder for a sprint weekend
-        # that hasn't happened or didn't run in F2.
-        if is_f2 and not has_results and rcode not in RACE_META:
-            print(f'  Skipping F2 placeholder round "{rcode}" (no results, unknown code)')
-            continue
-
-        # Race ID
+        # Race ID — sequential round_num so there are never gaps
         if is_f2:
-            race_id = f'{season_key}_{str(rnd_idx + 1).zfill(2)}'
+            race_id = f'{season_key}_{str(round_num).zfill(2)}'
         else:
-            race_id = f'{rcode.lower()}_r{rnd_idx + 1}'
+            race_id = f'{rcode.lower()}_r{round_num}'
 
         races_out.append({
             'id':      race_id,
-            'round':   rnd_idx + 1,
+            'round':   round_num,
             'name':    rcode,
             'flag':    meta.get('flag', '🏁'),
             'circuit': meta.get('circuit', rcode),
             'date':    season_key.replace('_f2', ''),
-            'sprint':  is_sprint,
+            'sprint':  is_sprint or is_f2_sprint,
             'status':  'complete' if has_results else 'upcoming',
             'results': entries,
         })
@@ -283,9 +286,10 @@ def sync():
     print(f'Fetching sheet from Google Sheets (GID {SHEET_GID})…')
     resp = requests.get(CSV_URL, timeout=30)
     resp.raise_for_status()
-    # Explicitly decode as UTF-8 — requests defaults to Latin-1 for text/csv
-    # which corrupts non-ASCII characters like ä, ö, š
-    df = pd.read_csv(StringIO(resp.content.decode('utf-8')))
+    # Pass raw bytes to pandas with utf-8-sig encoding.
+    # 'utf-8-sig' handles both plain UTF-8 and UTF-8-with-BOM (which Google
+    # Sheets sometimes adds), and avoids requests' Latin-1 default for text/csv.
+    df = pd.read_csv(BytesIO(resp.content), encoding='utf-8-sig')
     print(f'Sheet loaded: {len(df)} rows × {len(df.columns)} columns\n')
 
     with open(DB_PATH, encoding='utf-8') as f:
