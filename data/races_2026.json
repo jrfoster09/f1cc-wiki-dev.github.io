@@ -11,9 +11,9 @@
       "status": "complete",
       "results": [
         {
-          "driver": "eetu_vaisanen",
+          "driver": "Eetu VÃ¤isÃ¤nen",
           "pos": 1,
-          "team": "ferrari",
+          "team": null,
           "fastest_lap": false,
           "quali_pos": 1,
           "points": 25
@@ -27,9 +27,9 @@
           "points": 18
         },
         {
-          "driver": "michiii_maradoner",
+          "driver": "Michiii MaradÃ¶ner",
           "pos": 3,
-          "team": "alpine",
+          "team": null,
           "fastest_lap": false,
           "quali_pos": 9,
           "points": 15
@@ -191,9 +191,9 @@
           "points": 8
         },
         {
-          "driver": "eetu_vaisanen",
+          "driver": "Eetu VÃ¤isÃ¤nen",
           "pos": 2,
-          "team": "ferrari",
+          "team": null,
           "fastest_lap": false,
           "quali_pos": 8,
           "points": 7
@@ -255,9 +255,9 @@
           "points": 0
         },
         {
-          "driver": "michiii_maradoner",
+          "driver": "Michiii MaradÃ¶ner",
           "pos": 10,
-          "team": "alpine",
+          "team": null,
           "fastest_lap": false,
           "quali_pos": 9,
           "points": 0
@@ -355,9 +355,9 @@
       "status": "complete",
       "results": [
         {
-          "driver": "eetu_vaisanen",
+          "driver": "Eetu VÃ¤isÃ¤nen",
           "pos": 1,
-          "team": "ferrari",
+          "team": null,
           "fastest_lap": false,
           "quali_pos": 8,
           "points": 25
@@ -435,9 +435,9 @@
           "points": 1
         },
         {
-          "driver": "michiii_maradoner",
+          "driver": "Michiii MaradÃ¶ner",
           "pos": 11,
-          "team": "alpine",
+          "team": null,
           "fastest_lap": false,
           "quali_pos": 10,
           "points": 0
