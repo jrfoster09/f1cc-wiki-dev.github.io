@@ -3,8 +3,8 @@
   "series": "f2",
   "races": [
     {
-      "id": "2026_f2_02",
-      "round": 2,
+      "id": "2026_f2_01",
+      "round": 1,
       "name": "AUS",
       "flag": "🇦🇺",
       "circuit": "Albert Park",
@@ -175,13 +175,13 @@
       ]
     },
     {
-      "id": "2026_f2_03",
-      "round": 3,
+      "id": "2026_f2_02",
+      "round": 2,
       "name": "SPR",
       "flag": "🏁",
-      "circuit": "SPR",
+      "circuit": "Sprint Race",
       "date": "2026",
-      "sprint": false,
+      "sprint": true,
       "status": "complete",
       "results": [
         {
@@ -190,7 +190,7 @@
           "team": "invicta",
           "fastest_lap": false,
           "quali_pos": 1,
-          "points": 25
+          "points": 10
         },
         {
           "driver": "Frederik Frid",
@@ -198,7 +198,7 @@
           "team": "var",
           "fastest_lap": false,
           "quali_pos": 3,
-          "points": 18
+          "points": 8
         },
         {
           "driver": "Kodiak Callahan",
@@ -206,7 +206,7 @@
           "team": "dams",
           "fastest_lap": false,
           "quali_pos": 8,
-          "points": 15
+          "points": 6
         },
         {
           "driver": "Marcos Olmedo",
@@ -214,7 +214,7 @@
           "team": "campos",
           "fastest_lap": false,
           "quali_pos": 7,
-          "points": 12
+          "points": 5
         },
         {
           "driver": "Ryan Melon",
@@ -222,7 +222,7 @@
           "team": "art",
           "fastest_lap": false,
           "quali_pos": 4,
-          "points": 10
+          "points": 4
         },
         {
           "driver": "Yann Asdelion",
@@ -230,7 +230,7 @@
           "team": "dams",
           "fastest_lap": false,
           "quali_pos": 2,
-          "points": 8
+          "points": 3
         },
         {
           "driver": "Tim Mittens",
@@ -238,7 +238,7 @@
           "team": "hitech",
           "fastest_lap": false,
           "quali_pos": 5,
-          "points": 6
+          "points": 2
         },
         {
           "driver": "Korv Batt",
@@ -246,7 +246,7 @@
           "team": "prema",
           "fastest_lap": false,
           "quali_pos": 9,
-          "points": 4
+          "points": 1
         },
         {
           "driver": "Alex Thomspon",
@@ -254,7 +254,7 @@
           "team": "trident",
           "fastest_lap": false,
           "quali_pos": 10,
-          "points": 2
+          "points": 0
         },
         {
           "driver": "Daniel Park",
@@ -262,7 +262,7 @@
           "team": "trident",
           "fastest_lap": false,
           "quali_pos": 14,
-          "points": 1
+          "points": 0
         },
         {
           "driver": "Charles Mounir",
@@ -347,8 +347,8 @@
       ]
     },
     {
-      "id": "2026_f2_04",
-      "round": 4,
+      "id": "2026_f2_03",
+      "round": 3,
       "name": "BAH",
       "flag": "🇧🇭",
       "circuit": "Bahrain International",
@@ -358,8 +358,19 @@
       "results": []
     },
     {
-      "id": "2026_f2_06",
-      "round": 6,
+      "id": "2026_f2_04",
+      "round": 4,
+      "name": "SPR",
+      "flag": "🏁",
+      "circuit": "Sprint Race",
+      "date": "2026",
+      "sprint": true,
+      "status": "upcoming",
+      "results": []
+    },
+    {
+      "id": "2026_f2_05",
+      "round": 5,
       "name": "SAU",
       "flag": "🇸🇦",
       "circuit": "Jeddah Street",
@@ -369,8 +380,19 @@
       "results": []
     },
     {
-      "id": "2026_f2_08",
-      "round": 8,
+      "id": "2026_f2_06",
+      "round": 6,
+      "name": "SPR",
+      "flag": "🏁",
+      "circuit": "Sprint Race",
+      "date": "2026",
+      "sprint": true,
+      "status": "upcoming",
+      "results": []
+    },
+    {
+      "id": "2026_f2_07",
+      "round": 7,
       "name": "IMO",
       "flag": "🇮🇹",
       "circuit": "Imola",
@@ -380,8 +402,19 @@
       "results": []
     },
     {
-      "id": "2026_f2_10",
-      "round": 10,
+      "id": "2026_f2_08",
+      "round": 8,
+      "name": "SPR",
+      "flag": "🏁",
+      "circuit": "Sprint Race",
+      "date": "2026",
+      "sprint": true,
+      "status": "upcoming",
+      "results": []
+    },
+    {
+      "id": "2026_f2_09",
+      "round": 9,
       "name": "MON",
       "flag": "🇲🇨",
       "circuit": "Monaco",
@@ -391,8 +424,19 @@
       "results": []
     },
     {
-      "id": "2026_f2_12",
-      "round": 12,
+      "id": "2026_f2_10",
+      "round": 10,
+      "name": "SPR",
+      "flag": "🏁",
+      "circuit": "Sprint Race",
+      "date": "2026",
+      "sprint": true,
+      "status": "upcoming",
+      "results": []
+    },
+    {
+      "id": "2026_f2_11",
+      "round": 11,
       "name": "SPA",
       "flag": "🇪🇸",
       "circuit": "Circuit de Barcelona",
@@ -402,8 +446,19 @@
       "results": []
     },
     {
-      "id": "2026_f2_14",
-      "round": 14,
+      "id": "2026_f2_12",
+      "round": 12,
+      "name": "SPR",
+      "flag": "🏁",
+      "circuit": "Sprint Race",
+      "date": "2026",
+      "sprint": true,
+      "status": "upcoming",
+      "results": []
+    },
+    {
+      "id": "2026_f2_13",
+      "round": 13,
       "name": "AUT",
       "flag": "🇦🇹",
       "circuit": "Red Bull Ring",
@@ -413,8 +468,19 @@
       "results": []
     },
     {
-      "id": "2026_f2_16",
-      "round": 16,
+      "id": "2026_f2_14",
+      "round": 14,
+      "name": "SPR",
+      "flag": "🏁",
+      "circuit": "Sprint Race",
+      "date": "2026",
+      "sprint": true,
+      "status": "upcoming",
+      "results": []
+    },
+    {
+      "id": "2026_f2_15",
+      "round": 15,
       "name": "GBR",
       "flag": "🇬🇧",
       "circuit": "Silverstone",
@@ -424,8 +490,19 @@
       "results": []
     },
     {
-      "id": "2026_f2_18",
-      "round": 18,
+      "id": "2026_f2_16",
+      "round": 16,
+      "name": "SPR",
+      "flag": "🏁",
+      "circuit": "Sprint Race",
+      "date": "2026",
+      "sprint": true,
+      "status": "upcoming",
+      "results": []
+    },
+    {
+      "id": "2026_f2_17",
+      "round": 17,
       "name": "BEL",
       "flag": "🇧🇪",
       "circuit": "Spa-Francorchamps",
@@ -435,8 +512,19 @@
       "results": []
     },
     {
-      "id": "2026_f2_20",
-      "round": 20,
+      "id": "2026_f2_18",
+      "round": 18,
+      "name": "SPR",
+      "flag": "🏁",
+      "circuit": "Sprint Race",
+      "date": "2026",
+      "sprint": true,
+      "status": "upcoming",
+      "results": []
+    },
+    {
+      "id": "2026_f2_19",
+      "round": 19,
       "name": "HUN",
       "flag": "🇭🇺",
       "circuit": "Hungaroring",
@@ -446,8 +534,19 @@
       "results": []
     },
     {
-      "id": "2026_f2_22",
-      "round": 22,
+      "id": "2026_f2_20",
+      "round": 20,
+      "name": "SPR",
+      "flag": "🏁",
+      "circuit": "Sprint Race",
+      "date": "2026",
+      "sprint": true,
+      "status": "upcoming",
+      "results": []
+    },
+    {
+      "id": "2026_f2_21",
+      "round": 21,
       "name": "ITA",
       "flag": "🇮🇹",
       "circuit": "Monza",
@@ -457,8 +556,19 @@
       "results": []
     },
     {
-      "id": "2026_f2_24",
-      "round": 24,
+      "id": "2026_f2_22",
+      "round": 22,
+      "name": "SPR",
+      "flag": "🏁",
+      "circuit": "Sprint Race",
+      "date": "2026",
+      "sprint": true,
+      "status": "upcoming",
+      "results": []
+    },
+    {
+      "id": "2026_f2_23",
+      "round": 23,
       "name": "AZE",
       "flag": "🇦🇿",
       "circuit": "Baku",
@@ -468,8 +578,19 @@
       "results": []
     },
     {
-      "id": "2026_f2_26",
-      "round": 26,
+      "id": "2026_f2_24",
+      "round": 24,
+      "name": "SPR",
+      "flag": "🏁",
+      "circuit": "Sprint Race",
+      "date": "2026",
+      "sprint": true,
+      "status": "upcoming",
+      "results": []
+    },
+    {
+      "id": "2026_f2_25",
+      "round": 25,
       "name": "QAT",
       "flag": "🇶🇦",
       "circuit": "Lusail",
@@ -479,8 +600,19 @@
       "results": []
     },
     {
-      "id": "2026_f2_28",
-      "round": 28,
+      "id": "2026_f2_26",
+      "round": 26,
+      "name": "SPR",
+      "flag": "🏁",
+      "circuit": "Sprint Race",
+      "date": "2026",
+      "sprint": true,
+      "status": "upcoming",
+      "results": []
+    },
+    {
+      "id": "2026_f2_27",
+      "round": 27,
       "name": "UAE",
       "flag": "🇦🇪",
       "circuit": "Yas Marina",
