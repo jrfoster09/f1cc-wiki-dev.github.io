@@ -2349,9 +2349,28 @@
       "champion_constructor": null,
       "driver_standings": [
         {
+          "driver": "eetu_vaisanen",
+          "flag": "fi",
+          "points": 57,
+          "stints": [
+            {
+              "team": "ferrari",
+              "from_round": 1,
+              "to_round": 1
+            }
+          ],
+          "team": "ferrari",
+          "wins": 2,
+          "podiums": 3,
+          "pos": 1,
+          "fastest_laps": 0,
+          "poles": 0,
+          "races": 3
+        },
+        {
           "driver": "Quarter Kevu",
           "flag": "ee",
-          "points": 33,
+          "points": 27,
           "stints": [
             {
               "team": "vcarb",
@@ -2362,7 +2381,7 @@
           "team": "vcarb",
           "wins": 0,
           "podiums": 1,
-          "pos": 1,
+          "pos": 2,
           "fastest_laps": 1,
           "poles": 0,
           "races": 3
@@ -2381,7 +2400,7 @@
           "team": "mclaren",
           "wins": 0,
           "podiums": 0,
-          "pos": 2,
+          "pos": 3,
           "fastest_laps": 0,
           "poles": 0,
           "races": 3
@@ -2400,7 +2419,7 @@
           "team": "mercedes",
           "wins": 0,
           "podiums": 1,
-          "pos": 3,
+          "pos": 4,
           "fastest_laps": 0,
           "poles": 0,
           "races": 3
@@ -2419,7 +2438,7 @@
           "team": "williams",
           "wins": 0,
           "podiums": 0,
-          "pos": 4,
+          "pos": 5,
           "fastest_laps": 0,
           "poles": 0,
           "races": 3
@@ -2438,7 +2457,7 @@
           "team": "audi",
           "wins": 0,
           "podiums": 1,
-          "pos": 5,
+          "pos": 6,
           "fastest_laps": 0,
           "poles": 0,
           "races": 3
@@ -2457,9 +2476,28 @@
           "team": "red_bull",
           "wins": 0,
           "podiums": 1,
-          "pos": 6,
+          "pos": 7,
           "fastest_laps": 0,
           "poles": 1,
+          "races": 3
+        },
+        {
+          "driver": "michiii_maradoner",
+          "flag": "gr",
+          "points": 15,
+          "stints": [
+            {
+              "team": "alpine",
+              "from_round": 1,
+              "to_round": 1
+            }
+          ],
+          "team": "alpine",
+          "wins": 0,
+          "podiums": 1,
+          "pos": 8,
+          "fastest_laps": 0,
+          "poles": 0,
           "races": 3
         },
         {
@@ -2476,7 +2514,7 @@
           "team": "aston_martin",
           "wins": 0,
           "podiums": 0,
-          "pos": 7,
+          "pos": 9,
           "fastest_laps": 0,
           "poles": 0,
           "races": 3
@@ -2495,7 +2533,7 @@
           "team": "vcarb",
           "wins": 0,
           "podiums": 0,
-          "pos": 8,
+          "pos": 10,
           "fastest_laps": 0,
           "poles": 0,
           "races": 3
@@ -2514,7 +2552,7 @@
           "team": "mercedes",
           "wins": 0,
           "podiums": 0,
-          "pos": 9,
+          "pos": 11,
           "fastest_laps": 0,
           "poles": 0,
           "races": 3
@@ -2533,7 +2571,7 @@
           "team": "red_bull",
           "wins": 1,
           "podiums": 1,
-          "pos": 10,
+          "pos": 12,
           "fastest_laps": 0,
           "poles": 1,
           "races": 3
@@ -2552,7 +2590,7 @@
           "team": "williams",
           "wins": 0,
           "podiums": 0,
-          "pos": 11,
+          "pos": 13,
           "fastest_laps": 1,
           "poles": 0,
           "races": 3
@@ -2571,7 +2609,7 @@
           "team": "haas",
           "wins": 0,
           "podiums": 0,
-          "pos": 12,
+          "pos": 14,
           "fastest_laps": 0,
           "poles": 0,
           "races": 3
@@ -2590,7 +2628,7 @@
           "team": "haas",
           "wins": 0,
           "podiums": 0,
-          "pos": 13,
+          "pos": 15,
           "fastest_laps": 0,
           "poles": 0,
           "races": 3
@@ -2609,48 +2647,10 @@
           "team": "audi",
           "wins": 0,
           "podiums": 0,
-          "pos": 14,
-          "fastest_laps": 0,
-          "poles": 0,
-          "races": 3
-        },
-        {
-          "driver": "eetu_vaisanen",
-          "flag": "fi",
-          "points": 0,
-          "stints": [
-            {
-              "team": "ferrari",
-              "from_round": 1,
-              "to_round": 1
-            }
-          ],
-          "team": "ferrari",
-          "wins": 0,
-          "podiums": 0,
-          "pos": 15,
-          "fastest_laps": 0,
-          "poles": 0,
-          "races": 0
-        },
-        {
-          "driver": "michiii_maradoner",
-          "flag": "gr",
-          "points": 0,
-          "stints": [
-            {
-              "team": "alpine",
-              "from_round": 1,
-              "to_round": 1
-            }
-          ],
-          "team": "alpine",
-          "wins": 0,
-          "podiums": 0,
           "pos": 16,
           "fastest_laps": 0,
           "poles": 0,
-          "races": 0
+          "races": 3
         },
         {
           "driver": "Afonso Cachinho",
@@ -2732,71 +2732,71 @@
       "constructor_standings": [
         {
           "pos": 1,
-          "team": "vcarb",
-          "points": 47,
+          "team": "ferrari",
+          "points": 57,
           "wins": 0,
           "podiums": 0
         },
         {
           "pos": 2,
+          "team": "vcarb",
+          "points": 41,
+          "wins": 0,
+          "podiums": 0
+        },
+        {
+          "pos": 3,
           "team": "mercedes",
           "points": 30,
           "wins": 0,
           "podiums": 0
         },
         {
-          "pos": 3,
+          "pos": 4,
           "team": "red_bull",
           "points": 23,
           "wins": 0,
           "podiums": 0
         },
         {
-          "pos": 4,
+          "pos": 5,
           "team": "williams",
           "points": 19,
           "wins": 0,
           "podiums": 0
         },
         {
-          "pos": 5,
+          "pos": 6,
           "team": "mclaren",
           "points": 19,
           "wins": 0,
           "podiums": 0
         },
         {
-          "pos": 6,
+          "pos": 7,
           "team": "audi",
           "points": 17,
           "wins": 0,
           "podiums": 0
         },
         {
-          "pos": 7,
+          "pos": 8,
+          "team": "alpine",
+          "points": 15,
+          "wins": 0,
+          "podiums": 0
+        },
+        {
+          "pos": 9,
           "team": "aston_martin",
           "points": 14,
           "wins": 0,
           "podiums": 0
         },
         {
-          "pos": 8,
+          "pos": 10,
           "team": "haas",
           "points": 4,
-          "wins": 0,
-          "podiums": 0
-        },
-        {
-          "pos": 9,
-          "team": "ferrari",
-          "points": 0,
-          "wins": 0,
-          "podiums": 0
-        },
-        {
-          "pos": 10,
-          "team": "alpine",
-          "points": 0,
           "wins": 0,
           "podiums": 0
         }
@@ -3170,133 +3170,166 @@
           "points": 25,
           "wins": 1,
           "podiums": 1,
-          "races": 1,
+          "races": 2,
           "fastest_laps": 0,
           "poles": 1
         },
         {
           "pos": 2,
-          "driver": "Hamish Porter",
+          "driver": "marek_dubisar",
           "team": "invicta",
-          "points": 18,
-          "wins": 0,
+          "points": 25,
+          "wins": 1,
           "podiums": 1,
-          "races": 1,
+          "races": 2,
           "fastest_laps": 0,
-          "poles": 0
+          "poles": 1
         },
         {
           "pos": 3,
-          "driver": "Tim Mittens",
-          "team": "hitech",
-          "points": 15,
+          "driver": "Frederik Frid",
+          "team": "var",
+          "points": 22,
           "wins": 0,
           "podiums": 1,
-          "races": 1,
+          "races": 2,
           "fastest_laps": 0,
           "poles": 0
         },
         {
           "pos": 4,
-          "driver": "Korv Batt",
-          "team": "prema",
-          "points": 12,
+          "driver": "Tim Mittens",
+          "team": "hitech",
+          "points": 21,
           "wins": 0,
-          "podiums": 0,
-          "races": 1,
-          "fastest_laps": 0,
-          "poles": 0
-        },
-        {
-          "pos": 4,
-          "driver": "Yann Asdelion",
-          "team": "dams",
-          "points": 10,
-          "wins": 0,
-          "podiums": 0,
-          "races": 1,
+          "podiums": 1,
+          "races": 2,
           "fastest_laps": 0,
           "poles": 0
         },
         {
           "pos": 5,
-          "driver": "Daniel Park",
-          "team": "trident",
-          "points": 8,
+          "driver": "Kodiak Callahan",
+          "team": "dams",
+          "points": 21,
           "wins": 0,
-          "podiums": 0,
-          "races": 1,
+          "podiums": 1,
+          "races": 2,
           "fastest_laps": 0,
           "poles": 0
         },
         {
           "pos": 6,
-          "driver": "Kodiak Callahan",
-          "team": "dams",
-          "points": 6,
+          "driver": "Hamish Porter",
+          "team": "invicta",
+          "points": 18,
           "wins": 0,
-          "podiums": 0,
-          "races": 1,
+          "podiums": 1,
+          "races": 2,
           "fastest_laps": 0,
           "poles": 0
         },
         {
           "pos": 7,
-          "driver": "Frederik Frid",
-          "team": "var",
-          "points": 4,
+          "driver": "Yann Asdelion",
+          "team": "dams",
+          "points": 18,
           "wins": 0,
           "podiums": 0,
-          "races": 1,
+          "races": 2,
           "fastest_laps": 0,
           "poles": 0
         },
         {
           "pos": 8,
-          "driver": "Ryan Melon",
-          "team": "art",
-          "points": 2,
+          "driver": "Korv Batt",
+          "team": "prema",
+          "points": 16,
           "wins": 0,
           "podiums": 0,
-          "races": 1,
+          "races": 2,
           "fastest_laps": 0,
           "poles": 0
         },
         {
           "pos": 9,
-          "driver": "Charles Mounir",
-          "team": "mp_motorsport",
-          "points": 1,
+          "driver": "Ryan Melon",
+          "team": "art",
+          "points": 12,
           "wins": 0,
           "podiums": 0,
-          "races": 1,
+          "races": 2,
           "fastest_laps": 0,
           "poles": 0
         },
         {
           "pos": 10,
-          "driver": "Andrew Price",
-          "team": "prema",
-          "points": 0,
+          "driver": "Marcos Olmedo",
+          "team": "campos",
+          "points": 12,
           "wins": 0,
           "podiums": 0,
-          "races": 1,
+          "races": 2,
           "fastest_laps": 0,
           "poles": 0
         },
         {
           "pos": 11,
-          "driver": "Brock Lee",
-          "team": "mp_motorsport",
-          "points": 0,
+          "driver": "Daniel Park",
+          "team": "trident",
+          "points": 9,
           "wins": 0,
           "podiums": 0,
-          "races": 1,
+          "races": 2,
           "fastest_laps": 0,
           "poles": 0
         },
         {
           "pos": 12,
+          "driver": "Alex Thomspon",
+          "team": "trident",
+          "points": 2,
+          "wins": 0,
+          "podiums": 0,
+          "races": 2,
+          "fastest_laps": 0,
+          "poles": 0
+        },
+        {
+          "pos": 13,
+          "driver": "Charles Mounir",
+          "team": "mp_motorsport",
+          "points": 1,
+          "wins": 0,
+          "podiums": 0,
+          "races": 2,
+          "fastest_laps": 0,
+          "poles": 0
+        },
+        {
+          "pos": 14,
+          "driver": "Andrew Price",
+          "team": "prema",
+          "points": 0,
+          "wins": 0,
+          "podiums": 0,
+          "races": 2,
+          "fastest_laps": 0,
+          "poles": 0
+        },
+        {
+          "pos": 15,
+          "driver": "Brock Lee",
+          "team": "mp_motorsport",
+          "points": 0,
+          "wins": 0,
+          "podiums": 0,
+          "races": 2,
+          "fastest_laps": 1,
+          "poles": 0
+        },
+        {
+          "pos": 16,
           "driver": "Aaron Ismael",
           "team": "var",
           "points": 0,
@@ -3307,51 +3340,18 @@
           "poles": 0
         },
         {
-          "pos": 13,
-          "driver": "Marcos Olmedo",
-          "team": "campos",
-          "points": 0,
-          "wins": 0,
-          "podiums": 0,
-          "races": 1,
-          "fastest_laps": 0,
-          "poles": 0
-        },
-        {
-          "pos": 14,
+          "pos": 17,
           "driver": "Takumi Aizawa",
           "team": "campos",
           "points": 0,
           "wins": 0,
           "podiums": 0,
-          "races": 1,
+          "races": 2,
           "fastest_laps": 0,
           "poles": 0
         },
         {
-          "pos": 15,
-          "driver": "Alex Thomspon",
-          "team": "trident",
-          "points": 0,
-          "wins": 0,
-          "podiums": 0,
-          "races": 1,
-          "fastest_laps": 0,
-          "poles": 0
-        },
-        {
-          "pos": 16,
-          "driver": "marek_dubisar",
-          "team": "invicta",
-          "points": 0,
-          "wins": 0,
-          "podiums": 0,
-          "races": 0,
-          "fastest_laps": 0,
-          "poles": 0
-        },
-        {
-          "pos": 17,
+          "pos": 18,
           "driver": "Leon Fanelio",
           "team": "invicta",
           "points": 0,
@@ -3362,7 +3362,7 @@
           "poles": 0
         },
         {
-          "pos": 18,
+          "pos": 19,
           "driver": "Darragh O'Reilly",
           "team": "rodin",
           "points": 0,
@@ -3373,46 +3373,46 @@
           "poles": 0
         },
         {
-          "pos": 19,
+          "pos": 20,
           "driver": "Colin Hongnoi",
           "team": "rodin",
           "points": 0,
           "wins": 0,
           "podiums": 0,
-          "races": 1,
-          "fastest_laps": 0,
-          "poles": 0
-        },
-        {
-          "pos": 20,
-          "driver": "Kanata Rivington",
-          "team": "hitech",
-          "points": 0,
-          "wins": 0,
-          "podiums": 0,
-          "races": 1,
+          "races": 2,
           "fastest_laps": 0,
           "poles": 0
         },
         {
           "pos": 21,
-          "driver": "Jacob Vavro",
-          "team": "aix",
+          "driver": "Kanata Rivington",
+          "team": "hitech",
           "points": 0,
           "wins": 0,
           "podiums": 0,
-          "races": 1,
+          "races": 2,
           "fastest_laps": 0,
           "poles": 0
         },
         {
           "pos": 22,
+          "driver": "Jacob Vavro",
+          "team": "aix",
+          "points": 0,
+          "wins": 0,
+          "podiums": 0,
+          "races": 2,
+          "fastest_laps": 1,
+          "poles": 0
+        },
+        {
+          "pos": 23,
           "driver": "Corentin PREMEIR",
           "team": "art",
           "points": 0,
           "wins": 0,
           "podiums": 0,
-          "races": 1,
+          "races": 2,
           "fastest_laps": 0,
           "poles": 0
         }
@@ -3420,70 +3420,77 @@
       "constructor_standings": [
         {
           "pos": 1,
-          "team": "aix",
-          "points": 25,
+          "team": "invicta",
+          "points": 43,
           "wins": 0,
           "podiums": 0
         },
         {
           "pos": 2,
           "team": "dams",
-          "points": 16,
+          "points": 39,
           "wins": 0,
           "podiums": 0
         },
         {
           "pos": 3,
-          "team": "hitech",
-          "points": 15,
+          "team": "aix",
+          "points": 25,
           "wins": 0,
           "podiums": 0
         },
         {
           "pos": 4,
-          "team": "prema",
-          "points": 12,
+          "team": "var",
+          "points": 22,
           "wins": 0,
           "podiums": 0
         },
         {
           "pos": 5,
-          "team": "trident",
-          "points": 8,
+          "team": "hitech",
+          "points": 21,
           "wins": 0,
           "podiums": 0
         },
         {
           "pos": 6,
-          "team": "var",
-          "points": 4,
+          "team": "prema",
+          "points": 16,
           "wins": 0,
           "podiums": 0
         },
         {
           "pos": 7,
           "team": "art",
-          "points": 2,
+          "points": 12,
           "wins": 0,
           "podiums": 0
         },
         {
           "pos": 8,
+          "team": "campos",
+          "points": 12,
+          "wins": 0,
+          "podiums": 0
+        },
+        {
+          "pos": 9,
+          "team": "trident",
+          "points": 11,
+          "wins": 0,
+          "podiums": 0
+        },
+        {
+          "pos": 10,
           "team": "mp_motorsport",
           "points": 1,
           "wins": 0,
           "podiums": 0
         },
         {
-          "pos": 9,
+          "pos": 11,
           "team": "rodin",
-          "points": 0,
-          "wins": 0,
-          "podiums": 0
-        },
-        {
-          "pos": 10,
-          "team": "campos",
           "points": 0,
           "wins": 0,
           "podiums": 0
