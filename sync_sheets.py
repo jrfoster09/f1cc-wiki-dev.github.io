@@ -120,10 +120,11 @@ def make_map(df, start_row, max_drivers=30):
 
 # ── Core builder ──────────────────────────────────────────────────────────────
 
-def build_races(df, main_label, quali_label, season_key, db, is_f2=False):
+def build_races(df, main_label, quali_label, season_key, db, is_f2=False, name_to_id=None):
     """
     Parse one series' results from the sheet.
     Returns a list of race dicts ready for the JSON file.
+    name_to_id: dict mapping display name → driver slug key in db.json
     """
     main_row = find_header(df, main_label)
     if main_row is None:
@@ -140,7 +141,7 @@ def build_races(df, main_label, quali_label, season_key, db, is_f2=False):
     pos_map   = make_map(df, main_row)
     quali_map = make_map(df, quali_row) if quali_row is not None else {}
 
-    # Driver → team lookup (from db.json standings)
+    # Driver → team lookup (from db.json standings, keyed by slug)
     driver_team = {}
     for row in db['seasons'].get(season_key, {}).get('driver_standings', []):
         driver_team[row['driver']] = row.get('team')
@@ -165,6 +166,9 @@ def build_races(df, main_label, quali_label, season_key, db, is_f2=False):
             if pos is None and not fl:
                 continue  # did not participate
 
+            # Resolve display name → db slug key (handles Väisänen, Maradöner, etc.)
+            driver_id = name_to_id.get(driver, driver) if name_to_id else driver
+
             # Qualifying position
             q_vals    = quali_map.get(driver, [])
             q_raw     = q_vals[rnd_idx] if rnd_idx < len(q_vals) else None
@@ -184,9 +188,9 @@ def build_races(df, main_label, quali_label, season_key, db, is_f2=False):
                 pts = 0
 
             entries.append({
-                'driver':      driver,
+                'driver':      driver_id,
                 'pos':         pos,
-                'team':        driver_team.get(driver),
+                'team':        driver_team.get(driver_id),
                 'fastest_lap': fl,
                 'quali_pos':   quali_pos,
                 'points':      pts,
@@ -272,15 +276,22 @@ def sync():
     print(f'Fetching sheet from Google Sheets (GID {SHEET_GID})…')
     resp = requests.get(CSV_URL, timeout=30)
     resp.raise_for_status()
-    df = pd.read_csv(StringIO(resp.text))
+    # Explicitly decode as UTF-8 — requests defaults to Latin-1 for text/csv
+    # which corrupts non-ASCII characters like ä, ö, š
+    df = pd.read_csv(StringIO(resp.content.decode('utf-8')))
     print(f'Sheet loaded: {len(df)} rows × {len(df.columns)} columns\n')
 
     with open(DB_PATH, encoding='utf-8') as f:
         db = json.load(f)
 
+    # Build display-name → driver slug reverse map so sheet names like
+    # "Eetu Väisänen" resolve to db.json keys like "eetu_vaisanen"
+    name_to_id = {v.get('name', k): k for k, v in db.get('drivers', {}).items()}
+    name_to_id.update({k: k for k in db.get('drivers', {})})  # slug → slug too
+
     # ── F1 ────────────────────────────────────────────────────────────────────
     print('── F1 ──')
-    f1_races = build_races(df, 'F1CC', 'QUALIFYING', F1_SEASON, db, is_f2=False)
+    f1_races = build_races(df, 'F1CC', 'QUALIFYING', F1_SEASON, db, is_f2=False, name_to_id=name_to_id)
     if f1_races:
         update_standings(db, F1_SEASON, f1_races)
         with open(F1_OUT, 'w', encoding='utf-8') as f:
@@ -293,7 +304,7 @@ def sync():
 
     # ── F2 ────────────────────────────────────────────────────────────────────
     print('\n── F2 ──')
-    f2_races = build_races(df, 'F2 Race', 'F2 Qualifying', F2_SEASON, db, is_f2=True)
+    f2_races = build_races(df, 'F2 Race', 'F2 Qualifying', F2_SEASON, db, is_f2=True, name_to_id=name_to_id)
     if f2_races:
         update_standings(db, F2_SEASON, f2_races)
         with open(F2_OUT, 'w', encoding='utf-8') as f:
