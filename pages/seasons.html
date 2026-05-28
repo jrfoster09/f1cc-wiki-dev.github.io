@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#060e1c">
   <title>Seasons — F1CC Wiki</title>
   <link rel="stylesheet" href="../css/style.css">
   <style>
@@ -36,21 +37,26 @@
       gap: 8px;
     }
     .heading-f1 { border-bottom: 3px solid #E8002D; }
-    .heading-f2 { border-bottom: 3px solid #0090D0; }
+    .heading-f2 { border-bottom: 3px solid var(--f2-accent); }
   </style>
-  <script src="https://unpkg.com/twemoji@14.0.2/dist/twemoji.min.js" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/twemoji@14.0.2/dist/twemoji.min.js" crossorigin="anonymous" async></script>
 </head>
 <body>
 
+<a href="#main-content" class="skip-link">Skip to content</a>
+
 <nav id="nav">
   <a class="nav-logo" href="../index.html"><div class="nav-logo-pip"></div>F1CC WIKI</a>
-  <ul class="nav-links">
+  <ul class="nav-links" id="nav-links">
     <li><a href="../index.html">Home</a></li>
     <li><a href="seasons.html" class="active">Seasons</a></li>
     <li><a href="drivers.html">Drivers</a></li>
     <li><a href="teams.html">Teams</a></li>
     <li><a href="records.html">Records</a></li>
   </ul>
+  <button class="nav-hamburger" id="nav-hamburger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="nav-links">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
 <div class="hero-strip">
@@ -59,9 +65,9 @@
   <p class="hero-sub">The complete history of every F1 Community Career season — click any season for full standings and race results.</p>
 </div>
 
-<div class="page-container">
+<main class="page-container" id="main-content">
   <div class="section-header mb-2" style="margin-bottom: 10px;">
-    <span class="section-title" id="season-count">Seasons</span>
+    <h2 class="section-title" id="season-count">Seasons</h2>
   </div>
 
   <h2 class="series-heading heading-f1">🔴 Formula 1</h2>
@@ -73,7 +79,7 @@
   <div style="display:flex;flex-direction:column;gap:10px" id="f2-seasons-list">
     <div style="color:var(--text-muted)">Loading…</div>
   </div>
-</div>
+</main>
 
 <footer><p>F1CC Wiki · <a href="../index.html">Home</a></p></footer>
 
@@ -127,12 +133,12 @@
     };
 
     document.getElementById('f1-seasons-list').innerHTML = renderList(f1Seasons, 'var(--blue-accent)');
-    document.getElementById('f2-seasons-list').innerHTML = renderList(f2Seasons, '#0090D0');
+    document.getElementById('f2-seasons-list').innerHTML = renderList(f2Seasons, 'var(--f2-accent)');
   }
 
-  init();
-  // Render flag emojis as images for cross-platform support
-  setTimeout(() => { if(window.twemoji) twemoji.parse(document.body, {folder:'svg', ext:'.svg'}); }, 500);
+  init().then(() => {
+    if (window.twemoji) twemoji.parse(document.body, {folder:'svg', ext:'.svg'});
+  });
 </script>
 </body>
 </html>
