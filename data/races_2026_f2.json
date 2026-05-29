@@ -23,7 +23,7 @@
         {
           "driver": "Hamish Porter",
           "pos": 2,
-          "team": null,
+          "team": "invicta",
           "fastest_lap": false,
           "quali_pos": 8,
           "points": 18
@@ -93,9 +93,9 @@
           "points": 1
         },
         {
-          "driver": "Marek DubiÅ¡ar",
+          "driver": "marek_dubisar",
           "pos": 11,
-          "team": null,
+          "team": "invicta",
           "fastest_lap": false,
           "quali_pos": 17,
           "points": 0
@@ -179,18 +179,18 @@
       "round": 2,
       "name": "SPR",
       "flag": "🏁",
-      "circuit": "SPR",
+      "circuit": "Sprint Race",
       "date": "2026",
-      "sprint": false,
+      "sprint": true,
       "status": "complete",
       "results": [
         {
-          "driver": "Marek DubiÅ¡ar",
+          "driver": "marek_dubisar",
           "pos": 1,
-          "team": null,
+          "team": "invicta",
           "fastest_lap": false,
           "quali_pos": 1,
-          "points": 25
+          "points": 10
         },
         {
           "driver": "Frederik Frid",
@@ -198,7 +198,7 @@
           "team": "var",
           "fastest_lap": false,
           "quali_pos": 3,
-          "points": 18
+          "points": 8
         },
         {
           "driver": "Kodiak Callahan",
@@ -206,7 +206,7 @@
           "team": "dams",
           "fastest_lap": false,
           "quali_pos": 8,
-          "points": 15
+          "points": 6
         },
         {
           "driver": "Marcos Olmedo",
@@ -214,7 +214,7 @@
           "team": "campos",
           "fastest_lap": false,
           "quali_pos": 7,
-          "points": 12
+          "points": 5
         },
         {
           "driver": "Ryan Melon",
@@ -222,7 +222,7 @@
           "team": "art",
           "fastest_lap": false,
           "quali_pos": 4,
-          "points": 10
+          "points": 4
         },
         {
           "driver": "Yann Asdelion",
@@ -230,7 +230,7 @@
           "team": "dams",
           "fastest_lap": false,
           "quali_pos": 2,
-          "points": 8
+          "points": 3
         },
         {
           "driver": "Tim Mittens",
@@ -238,7 +238,7 @@
           "team": "hitech",
           "fastest_lap": false,
           "quali_pos": 5,
-          "points": 6
+          "points": 2
         },
         {
           "driver": "Korv Batt",
@@ -246,7 +246,7 @@
           "team": "prema",
           "fastest_lap": false,
           "quali_pos": 9,
-          "points": 4
+          "points": 1
         },
         {
           "driver": "Alex Thomspon",
@@ -254,7 +254,7 @@
           "team": "trident",
           "fastest_lap": false,
           "quali_pos": 10,
-          "points": 2
+          "points": 0
         },
         {
           "driver": "Daniel Park",
@@ -262,7 +262,7 @@
           "team": "trident",
           "fastest_lap": false,
           "quali_pos": 14,
-          "points": 1
+          "points": 0
         },
         {
           "driver": "Charles Mounir",
@@ -331,7 +331,7 @@
         {
           "driver": "Hamish Porter",
           "pos": 19,
-          "team": null,
+          "team": "invicta",
           "fastest_lap": false,
           "quali_pos": 15,
           "points": 0
@@ -362,9 +362,9 @@
       "round": 4,
       "name": "SPR",
       "flag": "🏁",
-      "circuit": "SPR",
+      "circuit": "Sprint Race",
       "date": "2026",
-      "sprint": false,
+      "sprint": true,
       "status": "upcoming",
       "results": []
     },
@@ -384,9 +384,9 @@
       "round": 6,
       "name": "SPR",
       "flag": "🏁",
-      "circuit": "SPR",
+      "circuit": "Sprint Race",
       "date": "2026",
-      "sprint": false,
+      "sprint": true,
       "status": "upcoming",
       "results": []
     },
@@ -406,9 +406,9 @@
       "round": 8,
       "name": "SPR",
       "flag": "🏁",
-      "circuit": "SPR",
+      "circuit": "Sprint Race",
       "date": "2026",
-      "sprint": false,
+      "sprint": true,
       "status": "upcoming",
       "results": []
     },
@@ -428,9 +428,9 @@
       "round": 10,
       "name": "SPR",
       "flag": "🏁",
-      "circuit": "SPR",
+      "circuit": "Sprint Race",
       "date": "2026",
-      "sprint": false,
+      "sprint": true,
       "status": "upcoming",
       "results": []
     },
@@ -450,9 +450,9 @@
       "round": 12,
       "name": "SPR",
       "flag": "🏁",
-      "circuit": "SPR",
+      "circuit": "Sprint Race",
       "date": "2026",
-      "sprint": false,
+      "sprint": true,
       "status": "upcoming",
       "results": []
     },
@@ -472,9 +472,9 @@
       "round": 14,
       "name": "SPR",
       "flag": "🏁",
-      "circuit": "SPR",
+      "circuit": "Sprint Race",
       "date": "2026",
-      "sprint": false,
+      "sprint": true,
       "status": "upcoming",
       "results": []
     },
@@ -494,9 +494,9 @@
       "round": 16,
       "name": "SPR",
       "flag": "🏁",
-      "circuit": "SPR",
+      "circuit": "Sprint Race",
       "date": "2026",
-      "sprint": false,
+      "sprint": true,
       "status": "upcoming",
       "results": []
     },
@@ -516,9 +516,9 @@
       "round": 18,
       "name": "SPR",
       "flag": "🏁",
-      "circuit": "SPR",
+      "circuit": "Sprint Race",
       "date": "2026",
-      "sprint": false,
+      "sprint": true,
       "status": "upcoming",
       "results": []
     },
@@ -538,9 +538,9 @@
       "round": 20,
       "name": "SPR",
       "flag": "🏁",
-      "circuit": "SPR",
+      "circuit": "Sprint Race",
       "date": "2026",
-      "sprint": false,
+      "sprint": true,
       "status": "upcoming",
       "results": []
     },
@@ -560,9 +560,9 @@
       "round": 22,
       "name": "SPR",
       "flag": "🏁",
-      "circuit": "SPR",
+      "circuit": "Sprint Race",
       "date": "2026",
-      "sprint": false,
+      "sprint": true,
       "status": "upcoming",
       "results": []
     },
@@ -582,9 +582,9 @@
       "round": 24,
       "name": "SPR",
       "flag": "🏁",
-      "circuit": "SPR",
+      "circuit": "Sprint Race",
       "date": "2026",
-      "sprint": false,
+      "sprint": true,
       "status": "upcoming",
       "results": []
     },
@@ -604,9 +604,9 @@
       "round": 26,
       "name": "SPR",
       "flag": "🏁",
-      "circuit": "SPR",
+      "circuit": "Sprint Race",
       "date": "2026",
-      "sprint": false,
+      "sprint": true,
       "status": "upcoming",
       "results": []
     },
