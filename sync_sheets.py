@@ -46,6 +46,15 @@ SPRINT_PTS    = {1:8,  2:7,  3:6,  4:5,  5:4,  6:3, 7:2, 8:1}
 F2_SPRINT_PTS = {1:10, 2:8,  3:6,  4:5,  5:4,  6:3, 7:2, 8:1}
 SPRINTS       = {'CHNS', 'SAUS', 'AUSS', 'NETS', 'USAS', 'BRAS'}
 
+# Sheet name → db.json slug overrides.
+# Add a row here whenever a driver's name in the Google Sheet differs from
+# their display name in db.json (e.g. sheet uses ASCII, db uses special chars).
+SHEET_NAME_OVERRIDES = {
+    'Eetu Vaisanen':     'eetu_vaisanen',
+    'Michiii Maradoner': 'michiii_maradoner',
+    'Marek Dubisar':     'marek_dubisar',
+}
+
 RACE_META = {
     'AUS' : {'flag': '🇦🇺', 'circuit': 'Albert Park'},
     'CHNS': {'flag': '🇨🇳', 'circuit': 'Shanghai Sprint'},
@@ -299,6 +308,8 @@ def sync():
     # "Eetu Väisänen" resolve to db.json keys like "eetu_vaisanen"
     name_to_id = {v.get('name', k): k for k, v in db.get('drivers', {}).items()}
     name_to_id.update({k: k for k in db.get('drivers', {})})  # slug → slug too
+    # Apply manual overrides for sheet names that use ASCII spellings
+    name_to_id.update(SHEET_NAME_OVERRIDES)
 
     # ── F1 ────────────────────────────────────────────────────────────────────
     print('── F1 ──')
