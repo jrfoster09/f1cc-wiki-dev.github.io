@@ -2650,7 +2650,7 @@
           "pos": 16,
           "fastest_laps": 0,
           "poles": 0,
-          "races": 0
+          "races": 3
         },
         {
           "driver": "Afonso Cachinho",
@@ -3198,8 +3198,8 @@
         },
         {
           "pos": 4,
-          "driver": "Kodiak Callahan",
-          "team": "dams",
+          "driver": "Korv Batt",
+          "team": "prema",
           "points": 13,
           "wins": 0,
           "podiums": 0,
@@ -3209,11 +3209,11 @@
         },
         {
           "pos": 5,
-          "driver": "Korv Batt",
-          "team": "prema",
-          "points": 13,
+          "driver": "Kodiak Callahan",
+          "team": "dams",
+          "points": 12,
           "wins": 0,
-          "podiums": 0,
+          "podiums": 1,
           "races": 2,
           "fastest_laps": 0,
           "poles": 0
