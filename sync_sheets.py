@@ -50,9 +50,12 @@ SPRINTS       = {'CHNS', 'SAUS', 'AUSS', 'NETS', 'USAS', 'BRAS'}
 # Add a row here whenever a driver's name in the Google Sheet differs from
 # their display name in db.json (e.g. sheet uses ASCII, db uses special chars).
 SHEET_NAME_OVERRIDES = {
-    'Eetu Vaisanen':     'eetu_vaisanen',
-    'Michiii Maradoner': 'michiii_maradoner',
-    'Marek Dubisar':     'marek_dubisar',
+    'Eetu Vaisanen':      'eetu_vaisanen',
+    'Michiii MaraDöner':  'michiii_maradoner',   # sheet uses capital D + ö
+    'Michiii MaraDoner':  'michiii_maradoner',   # ASCII variant of above
+    'Michiii Maradöner':  'michiii_maradoner',   # lowercase-d variant (db.json spelling)
+    'Michiii Maradoner':  'michiii_maradoner',   # ASCII fallback
+    'Marek Dubisar':      'marek_dubisar',
 }
 
 RACE_META = {
