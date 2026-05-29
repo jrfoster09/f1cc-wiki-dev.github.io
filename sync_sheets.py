@@ -19,7 +19,7 @@ Position encoding:
   blank/0 = did not participate
 """
 
-import json, os, sys
+import json, os, sys, unicodedata
 from io import StringIO, BytesIO
 
 import requests
@@ -310,6 +310,14 @@ def sync():
     name_to_id.update({k: k for k in db.get('drivers', {})})  # slug → slug too
     # Apply manual overrides for sheet names that use ASCII spellings
     name_to_id.update(SHEET_NAME_OVERRIDES)
+    # Auto-add ASCII-normalized variants of every display name so the lookup
+    # works whether the Google Sheet uses "Eetu Väisänen" (special chars) or
+    # "Eetu Vaisanen" (plain ASCII). Both will now resolve to "eetu_vaisanen".
+    for display_name, slug in list(name_to_id.items()):
+        ascii_name = (unicodedata.normalize('NFKD', display_name)
+                      .encode('ASCII', 'ignore').decode('ASCII'))
+        if ascii_name != display_name:
+            name_to_id.setdefault(ascii_name, slug)
 
     # ── F1 ────────────────────────────────────────────────────────────────────
     print('── F1 ──')
