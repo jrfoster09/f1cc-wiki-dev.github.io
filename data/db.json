@@ -2351,7 +2351,7 @@
         {
           "driver": "eetu_vaisanen",
           "flag": "fi",
-          "points": 63,
+          "points": 64,
           "stints": [
             {
               "team": "ferrari",
@@ -2363,7 +2363,7 @@
           "wins": 2,
           "podiums": 3,
           "pos": 1,
-          "fastest_laps": 0,
+          "fastest_laps": 1,
           "poles": 2,
           "races": 4
         },
@@ -2733,7 +2733,7 @@
         {
           "pos": 1,
           "team": "ferrari",
-          "points": 63,
+          "points": 64,
           "wins": 0,
           "podiums": 0
         },
