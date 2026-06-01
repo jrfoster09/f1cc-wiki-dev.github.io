@@ -26,17 +26,23 @@ import requests
 import pandas as pd
 
 # ── Config ────────────────────────────────────────────────────────────────────
-SHEET_ID  = '1XJWNG1R74CADbob6mHo4D3G7DV8gxaQQKTDpHqu2Bqo'
-SHEET_GID = '224130953'
-CSV_URL   = (
+SHEET_ID    = '1XJWNG1R74CADbob6mHo4D3G7DV8gxaQQKTDpHqu2Bqo'
+SHEET_GID   = '224130953'
+WCC_GID     = '200204515'
+CSV_URL     = (
     f'https://docs.google.com/spreadsheets/d/{SHEET_ID}'
     f'/export?format=csv&gid={SHEET_GID}'
+)
+WCC_URL     = (
+    f'https://docs.google.com/spreadsheets/d/{SHEET_ID}'
+    f'/export?format=csv&gid={WCC_GID}'
 )
 
 DATA_DIR  = os.path.join(os.path.dirname(__file__), 'data')
 DB_PATH   = os.path.join(DATA_DIR, 'db.json')
 F1_OUT    = os.path.join(DATA_DIR, 'races_2026.json')
 F2_OUT    = os.path.join(DATA_DIR, 'races_2026_f2.json')
+WCC_OUT   = os.path.join(DATA_DIR, 'csv', 'WCC_History.csv')
 
 F1_SEASON = '2026'
 F2_SEASON = '2026_f2'
@@ -155,20 +161,36 @@ def build_races(df, main_label, quali_label, season_key, db, is_f2=False, name_t
     pos_map   = make_map(df, main_row)
     quali_map = make_map(df, quali_row) if quali_row is not None else {}
 
-    # Driver → team lookup (from db.json standings, keyed by slug)
-    driver_team = {}
-    for row in db['seasons'].get(season_key, {}).get('driver_standings', []):
-        driver_team[row['driver']] = row.get('team')
-    # Also check driver entries directly
+    # Per-round team lookup via stints (supports mid-season driver moves)
+    standings_rows = db['seasons'].get(season_key, {}).get('driver_standings', [])
+    driver_stints  = {row['driver']: (row.get('stints') or []) for row in standings_rows}
+    driver_team_fb = {row['driver']: row.get('team') for row in standings_rows}
+    # Fallback: drivers dict for anyone not yet in standings
     for dname, ddata in db.get('drivers', {}).items():
-        if dname not in driver_team:
+        if dname not in driver_team_fb:
             t = ddata.get('seasons', {}).get(season_key, {}).get('team')
             if t:
-                driver_team[dname] = t
+                driver_team_fb[dname] = t
+
+    def get_team(driver_id, rnd):
+        """Return team for driver_id at round rnd, honouring stints."""
+        stints = driver_stints.get(driver_id, [])
+        if stints:
+            best = None
+            for s in stints:
+                fr = s.get('from_round', 1)
+                tr = s.get('to_round')   # None/absent = open-ended
+                if fr <= rnd and (tr is None or rnd <= tr):
+                    if best is None or fr > best.get('from_round', 1):
+                        best = s
+            if best is not None:
+                return best.get('team')
+        return driver_team_fb.get(driver_id)
 
     races_out = []
     round_num = 0
     for rnd_idx, rcode in enumerate(race_codes):
+        round_num += 1   # increment first so get_team uses the correct round
         is_sprint    = (rcode in SPRINTS) and not is_f2
         is_f2_sprint = is_f2 and rcode == 'SPR'
         if is_f2_sprint:
@@ -211,7 +233,7 @@ def build_races(df, main_label, quali_label, season_key, db, is_f2=False, name_t
             entries.append({
                 'driver':      driver_id,
                 'pos':         pos,
-                'team':        driver_team.get(driver_id),
+                'team':        get_team(driver_id, round_num),
                 'fastest_lap': fl,
                 'quali_pos':   quali_pos,
                 'points':      pts,
@@ -219,7 +241,6 @@ def build_races(df, main_label, quali_label, season_key, db, is_f2=False, name_t
 
         entries.sort(key=lambda e: e['pos'] if isinstance(e['pos'], int) else 99)
         has_results = bool(entries)
-        round_num  += 1
 
         # Race ID — sequential round_num so there are never gaps
         if is_f2:
@@ -250,12 +271,15 @@ def update_standings(db, season_key, races_out):
             d = e['driver']
             if d not in stats:
                 stats[d] = {'wins': 0, 'podiums': 0, 'fl': 0, 'poles': 0,
-                             'races': 0, 'points': 0}
+                             'races': 0, 'points': 0, 'finish_counts': {}}
             stats[d]['races']  += 1
             stats[d]['points'] += e['points']
             if isinstance(e['pos'], int):
                 if e['pos'] == 1: stats[d]['wins']    += 1
                 if e['pos'] <= 3: stats[d]['podiums'] += 1
+                # Count every finish position for tiebreaking (most wins → most P2s → ...)
+                fc = stats[d]['finish_counts']
+                fc[e['pos']] = fc.get(e['pos'], 0) + 1
             if e['fastest_lap']:        stats[d]['fl']    += 1
             if e.get('quali_pos') == 1: stats[d]['poles'] += 1
 
@@ -271,9 +295,26 @@ def update_standings(db, season_key, races_out):
             'points':       s.get('points', 0),
         })
 
-    season['driver_standings'].sort(key=lambda x: -x['points'])
+    def tiebreak_key(row):
+        """Sort key: points desc, then most P1s, then most P2s, ..., most P20s."""
+        fc = stats.get(row['driver'], {}).get('finish_counts', {})
+        return tuple([-row['points']] + [-fc.get(p, 0) for p in range(1, 21)])
+
+    season['driver_standings'].sort(key=tiebreak_key)
     for i, row in enumerate(season['driver_standings']):
         row['pos'] = i + 1
+
+    # Update each driver's top-level team to their most recent completed race team,
+    # so the standings table always shows the current assignment after a team change.
+    last_team = {}
+    for race in races_out:
+        if race['status'] == 'complete':
+            for e in race['results']:
+                if e.get('team'):
+                    last_team[e['driver']] = e['team']
+    for row in season['driver_standings']:
+        if row['driver'] in last_team:
+            row['team'] = last_team[row['driver']]
 
     # Constructor standings
     team_pts = {}
@@ -303,6 +344,18 @@ def sync():
     # Sheets sometimes adds), and avoids requests' Latin-1 default for text/csv.
     df = pd.read_csv(BytesIO(resp.content), encoding='utf-8-sig')
     print(f'Sheet loaded: {len(df)} rows × {len(df.columns)} columns\n')
+
+    # ── WCC History CSV ───────────────────────────────────────────────────────
+    print('Fetching WCC History...')
+    try:
+        wcc_resp = requests.get(WCC_URL, timeout=30)
+        wcc_resp.raise_for_status()
+        os.makedirs(os.path.dirname(WCC_OUT), exist_ok=True)
+        with open(WCC_OUT, 'wb') as wcc_f:
+            wcc_f.write(wcc_resp.content)
+        print('✓ WCC_History.csv updated')
+    except Exception as e:
+        print(f'WARNING: Could not fetch WCC history: {e}')
 
     with open(DB_PATH, encoding='utf-8') as f:
         db = json.load(f)
