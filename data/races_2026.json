@@ -1040,8 +1040,17 @@
       "circuit": "Jeddah Street",
       "date": "2026",
       "sprint": false,
-      "status": "upcoming",
-      "results": []
+      "status": "complete",
+      "results": [
+        {
+          "driver": "Jack TEF",
+          "pos": 4,
+          "team": null,
+          "fastest_lap": false,
+          "quali_pos": 11,
+          "points": 12
+        }
+      ]
     },
     {
       "id": "mia_r8",

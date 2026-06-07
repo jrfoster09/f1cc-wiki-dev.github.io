@@ -666,8 +666,169 @@
       "circuit": "Jeddah Street",
       "date": "2026",
       "sprint": false,
-      "status": "upcoming",
-      "results": []
+      "status": "complete",
+      "results": [
+        {
+          "driver": "Ryan Melon",
+          "pos": 1,
+          "team": "art",
+          "fastest_lap": false,
+          "quali_pos": 6,
+          "points": 25
+        },
+        {
+          "driver": "Ricardo Kaka",
+          "pos": 2,
+          "team": null,
+          "fastest_lap": false,
+          "quali_pos": 8,
+          "points": 18
+        },
+        {
+          "driver": "Alex Thomspon",
+          "pos": 3,
+          "team": "trident",
+          "fastest_lap": false,
+          "quali_pos": 3,
+          "points": 15
+        },
+        {
+          "driver": "Hamish Porter",
+          "pos": 4,
+          "team": "invicta",
+          "fastest_lap": false,
+          "quali_pos": 14,
+          "points": 12
+        },
+        {
+          "driver": "Kodiak Callahan",
+          "pos": 5,
+          "team": "dams",
+          "fastest_lap": false,
+          "quali_pos": 20,
+          "points": 10
+        },
+        {
+          "driver": "Frederik Frid",
+          "pos": 6,
+          "team": "var",
+          "fastest_lap": false,
+          "quali_pos": 15,
+          "points": 8
+        },
+        {
+          "driver": "Corentin Premier",
+          "pos": 7,
+          "team": "art",
+          "fastest_lap": false,
+          "quali_pos": 13,
+          "points": 6
+        },
+        {
+          "driver": "Jaromir Grunt",
+          "pos": 8,
+          "team": "aix",
+          "fastest_lap": false,
+          "quali_pos": 11,
+          "points": 4
+        },
+        {
+          "driver": "Tim Mittens",
+          "pos": 9,
+          "team": "hitech",
+          "fastest_lap": false,
+          "quali_pos": 7,
+          "points": 2
+        },
+        {
+          "driver": "Charles Mounir",
+          "pos": 10,
+          "team": "mp_motorsport",
+          "fastest_lap": false,
+          "quali_pos": 5,
+          "points": 1
+        },
+        {
+          "driver": "Kanata Rivington",
+          "pos": 11,
+          "team": "hitech",
+          "fastest_lap": true,
+          "quali_pos": 12,
+          "points": 0
+        },
+        {
+          "driver": "Takumi Aizawa",
+          "pos": 12,
+          "team": "campos",
+          "fastest_lap": false,
+          "quali_pos": 1,
+          "points": 0
+        },
+        {
+          "driver": "Korv Batt",
+          "pos": 13,
+          "team": "prema",
+          "fastest_lap": false,
+          "quali_pos": 19,
+          "points": 0
+        },
+        {
+          "driver": "Brock Lee",
+          "pos": 14,
+          "team": "mp_motorsport",
+          "fastest_lap": false,
+          "quali_pos": 17,
+          "points": 0
+        },
+        {
+          "driver": "Andrew Price",
+          "pos": 15,
+          "team": "prema",
+          "fastest_lap": false,
+          "quali_pos": 4,
+          "points": 0
+        },
+        {
+          "driver": "Daniel Park",
+          "pos": 16,
+          "team": "trident",
+          "fastest_lap": false,
+          "quali_pos": 21,
+          "points": 0
+        },
+        {
+          "driver": "Yann Asdelion",
+          "pos": 17,
+          "team": "dams",
+          "fastest_lap": false,
+          "quali_pos": 16,
+          "points": 0
+        },
+        {
+          "driver": "Marcos Olmedo",
+          "pos": 18,
+          "team": "campos",
+          "fastest_lap": false,
+          "quali_pos": 18,
+          "points": 0
+        },
+        {
+          "driver": "Jacob Vavro",
+          "pos": 19,
+          "team": "aix",
+          "fastest_lap": false,
+          "quali_pos": 2,
+          "points": 0
+        },
+        {
+          "driver": "marek_dubisar",
+          "pos": 20,
+          "team": "invicta",
+          "fastest_lap": false,
+          "quali_pos": 9,
+          "points": 0
+        }
+      ]
     },
     {
       "id": "2026_f2_06",
