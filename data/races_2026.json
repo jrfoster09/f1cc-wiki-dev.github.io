@@ -868,8 +868,169 @@
       "circuit": "Jeddah Sprint",
       "date": "2026",
       "sprint": true,
-      "status": "upcoming",
-      "results": []
+      "status": "complete",
+      "results": [
+        {
+          "driver": "Robin Keisner",
+          "pos": 1,
+          "team": "audi",
+          "fastest_lap": false,
+          "quali_pos": 1,
+          "points": 8
+        },
+        {
+          "driver": "Maikel Zwart",
+          "pos": 2,
+          "team": "mercedes",
+          "fastest_lap": false,
+          "quali_pos": 5,
+          "points": 7
+        },
+        {
+          "driver": "eetu_vaisanen",
+          "pos": 3,
+          "team": "ferrari",
+          "fastest_lap": false,
+          "quali_pos": 3,
+          "points": 6
+        },
+        {
+          "driver": "Richard Hicks",
+          "pos": 4,
+          "team": "audi",
+          "fastest_lap": false,
+          "quali_pos": 7,
+          "points": 5
+        },
+        {
+          "driver": "Jason Roy",
+          "pos": 5,
+          "team": "red_bull",
+          "fastest_lap": false,
+          "quali_pos": 2,
+          "points": 4
+        },
+        {
+          "driver": "Quarter Kevu",
+          "pos": 6,
+          "team": "vcarb",
+          "fastest_lap": false,
+          "quali_pos": 4,
+          "points": 3
+        },
+        {
+          "driver": "Riley Swansson",
+          "pos": 7,
+          "team": "haas",
+          "fastest_lap": false,
+          "quali_pos": 8,
+          "points": 2
+        },
+        {
+          "driver": "Zhao Lei",
+          "pos": 8,
+          "team": "mclaren",
+          "fastest_lap": false,
+          "quali_pos": 9,
+          "points": 1
+        },
+        {
+          "driver": "michiii_maradoner",
+          "pos": 9,
+          "team": "alpine",
+          "fastest_lap": false,
+          "quali_pos": 10,
+          "points": 0
+        },
+        {
+          "driver": "Sarah Springfield",
+          "pos": 10,
+          "team": "aston_martin",
+          "fastest_lap": false,
+          "quali_pos": 15,
+          "points": 0
+        },
+        {
+          "driver": "Jack TEF",
+          "pos": 11,
+          "team": null,
+          "fastest_lap": false,
+          "quali_pos": 13,
+          "points": 0
+        },
+        {
+          "driver": "Lukus Wright",
+          "pos": 12,
+          "team": "vcarb",
+          "fastest_lap": false,
+          "quali_pos": 14,
+          "points": 0
+        },
+        {
+          "driver": "Afonso Cachinho",
+          "pos": 13,
+          "team": "ferrari",
+          "fastest_lap": false,
+          "quali_pos": 11,
+          "points": 0
+        },
+        {
+          "driver": "Sam Fakt",
+          "pos": 14,
+          "team": "aston_martin",
+          "fastest_lap": false,
+          "quali_pos": 12,
+          "points": 0
+        },
+        {
+          "driver": "Joshua Nathanial",
+          "pos": 15,
+          "team": "mclaren",
+          "fastest_lap": false,
+          "quali_pos": 16,
+          "points": 0
+        },
+        {
+          "driver": "Wesley Vandesteene",
+          "pos": 16,
+          "team": "mercedes",
+          "fastest_lap": false,
+          "quali_pos": 17,
+          "points": 0
+        },
+        {
+          "driver": "Julian Kondra",
+          "pos": 17,
+          "team": "alpine",
+          "fastest_lap": false,
+          "quali_pos": 20,
+          "points": 0
+        },
+        {
+          "driver": "George Konstantaras",
+          "pos": 18,
+          "team": "haas",
+          "fastest_lap": false,
+          "quali_pos": 19,
+          "points": 0
+        },
+        {
+          "driver": "Eren Aygen",
+          "pos": 19,
+          "team": "williams",
+          "fastest_lap": false,
+          "quali_pos": 18,
+          "points": 0
+        },
+        {
+          "driver": "Philippe Verhaeren",
+          "pos": "DNF",
+          "team": "red_bull",
+          "fastest_lap": false,
+          "quali_pos": 6,
+          "points": 0
+        }
+      ]
     },
     {
       "id": "sau_r7",
