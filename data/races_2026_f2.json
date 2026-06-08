@@ -1071,6 +1071,162 @@
       "sprint": false,
       "status": "upcoming",
       "results": []
+    },
+    {
+      "id": "2026_f2_28",
+      "round": 28,
+      "name": "f1",
+      "flag": "🏁",
+      "circuit": "f1",
+      "date": "2026",
+      "sprint": false,
+      "status": "complete",
+      "results": [
+        {
+          "driver": "Takumi Aizawa",
+          "pos": 1,
+          "team": "campos",
+          "fastest_lap": false,
+          "quali_pos": 34,
+          "points": 25
+        },
+        {
+          "driver": "Marcos Olmedo",
+          "pos": 5,
+          "team": "campos",
+          "fastest_lap": false,
+          "quali_pos": 25,
+          "points": 10
+        },
+        {
+          "driver": "Jacob Vavro",
+          "pos": 8,
+          "team": "aix",
+          "fastest_lap": false,
+          "quali_pos": 18,
+          "points": 4
+        },
+        {
+          "driver": "Daniel Park",
+          "pos": 9,
+          "team": "trident",
+          "fastest_lap": false,
+          "quali_pos": 5,
+          "points": 2
+        },
+        {
+          "driver": "Andrew Price",
+          "pos": 10,
+          "team": "prema",
+          "fastest_lap": false,
+          "quali_pos": 12,
+          "points": 1
+        },
+        {
+          "driver": "Charles Mounir",
+          "pos": 12,
+          "team": "mp_motorsport",
+          "fastest_lap": false,
+          "quali_pos": 23,
+          "points": 0
+        },
+        {
+          "driver": "Yann Asdelion",
+          "pos": 18,
+          "team": "dams",
+          "fastest_lap": false,
+          "quali_pos": 13,
+          "points": 0
+        },
+        {
+          "driver": "Tim Mittens",
+          "pos": 19,
+          "team": "hitech",
+          "fastest_lap": false,
+          "quali_pos": 14,
+          "points": 0
+        },
+        {
+          "driver": "Ricardo Kaka",
+          "pos": 20,
+          "team": null,
+          "fastest_lap": false,
+          "quali_pos": 4,
+          "points": 0
+        },
+        {
+          "driver": "Frederik Frid",
+          "pos": 22,
+          "team": "var",
+          "fastest_lap": false,
+          "quali_pos": 7,
+          "points": 0
+        },
+        {
+          "driver": "Corentin Premier",
+          "pos": 23,
+          "team": "art",
+          "fastest_lap": false,
+          "quali_pos": 39,
+          "points": 0
+        },
+        {
+          "driver": "Korv Batt",
+          "pos": 24,
+          "team": "prema",
+          "fastest_lap": false,
+          "quali_pos": 18,
+          "points": 0
+        },
+        {
+          "driver": "Alex Thomspon",
+          "pos": 27,
+          "team": "trident",
+          "fastest_lap": false,
+          "quali_pos": 27,
+          "points": 0
+        },
+        {
+          "driver": "marek_dubisar",
+          "pos": 28,
+          "team": "invicta",
+          "fastest_lap": false,
+          "quali_pos": 25,
+          "points": 0
+        },
+        {
+          "driver": "Kodiak Callahan",
+          "pos": 30,
+          "team": "dams",
+          "fastest_lap": false,
+          "quali_pos": 26,
+          "points": 0
+        },
+        {
+          "driver": "Jaromir Grunt",
+          "pos": 31,
+          "team": "aix",
+          "fastest_lap": false,
+          "quali_pos": 25,
+          "points": 0
+        },
+        {
+          "driver": "Hamish Porter",
+          "pos": 41,
+          "team": "invicta",
+          "fastest_lap": false,
+          "quali_pos": 11,
+          "points": 0
+        },
+        {
+          "driver": "Ryan Melon",
+          "pos": 56,
+          "team": "art",
+          "fastest_lap": false,
+          "quali_pos": 31,
+          "points": 0
+        }
+      ]
     }
   ]
 }
