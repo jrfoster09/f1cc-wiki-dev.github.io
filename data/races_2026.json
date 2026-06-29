@@ -1212,8 +1212,169 @@
       "circuit": "Miami International",
       "date": "2026",
       "sprint": false,
-      "status": "upcoming",
-      "results": []
+      "status": "complete",
+      "results": [
+        {
+          "driver": "Jason Roy",
+          "pos": 1,
+          "team": "red_bull",
+          "fastest_lap": false,
+          "quali_pos": 12,
+          "points": 25
+        },
+        {
+          "driver": "Zhao Lei",
+          "pos": 2,
+          "team": "mclaren",
+          "fastest_lap": false,
+          "quali_pos": 8,
+          "points": 18
+        },
+        {
+          "driver": "Eren Aygen",
+          "pos": 3,
+          "team": "williams",
+          "fastest_lap": false,
+          "quali_pos": 1,
+          "points": 15
+        },
+        {
+          "driver": "eetu_vaisanen",
+          "pos": 4,
+          "team": "ferrari",
+          "fastest_lap": false,
+          "quali_pos": 9,
+          "points": 12
+        },
+        {
+          "driver": "michiii_maradoner",
+          "pos": 5,
+          "team": "alpine",
+          "fastest_lap": false,
+          "quali_pos": 2,
+          "points": 10
+        },
+        {
+          "driver": "Quarter Kevu",
+          "pos": 6,
+          "team": "vcarb",
+          "fastest_lap": false,
+          "quali_pos": 10,
+          "points": 8
+        },
+        {
+          "driver": "Julian Kondra",
+          "pos": 7,
+          "team": "alpine",
+          "fastest_lap": false,
+          "quali_pos": 4,
+          "points": 6
+        },
+        {
+          "driver": "Philippe Verhaeren",
+          "pos": 8,
+          "team": "red_bull",
+          "fastest_lap": false,
+          "quali_pos": 16,
+          "points": 4
+        },
+        {
+          "driver": "Joshua Nathanial",
+          "pos": 9,
+          "team": "mclaren",
+          "fastest_lap": false,
+          "quali_pos": 5,
+          "points": 2
+        },
+        {
+          "driver": "Maikel Zwart",
+          "pos": 10,
+          "team": "mercedes",
+          "fastest_lap": false,
+          "quali_pos": 7,
+          "points": 1
+        },
+        {
+          "driver": "Riley Swansson",
+          "pos": 11,
+          "team": "haas",
+          "fastest_lap": false,
+          "quali_pos": 13,
+          "points": 0
+        },
+        {
+          "driver": "George Konstantaras",
+          "pos": 12,
+          "team": "haas",
+          "fastest_lap": false,
+          "quali_pos": 20,
+          "points": 0
+        },
+        {
+          "driver": "Sam Fakt",
+          "pos": 13,
+          "team": "aston_martin",
+          "fastest_lap": false,
+          "quali_pos": 11,
+          "points": 0
+        },
+        {
+          "driver": "Lukus Wright",
+          "pos": 14,
+          "team": "vcarb",
+          "fastest_lap": false,
+          "quali_pos": 19,
+          "points": 0
+        },
+        {
+          "driver": "Afonso Cachinho",
+          "pos": 15,
+          "team": "ferrari",
+          "fastest_lap": false,
+          "quali_pos": 15,
+          "points": 0
+        },
+        {
+          "driver": "Sarah Springfield",
+          "pos": 16,
+          "team": "aston_martin",
+          "fastest_lap": false,
+          "quali_pos": 17,
+          "points": 0
+        },
+        {
+          "driver": "Wesley Vandesteene",
+          "pos": "DNF",
+          "team": "mercedes",
+          "fastest_lap": false,
+          "quali_pos": 18,
+          "points": 0
+        },
+        {
+          "driver": "Richard Hicks",
+          "pos": "DSQ",
+          "team": "audi",
+          "fastest_lap": false,
+          "quali_pos": 3,
+          "points": 0
+        },
+        {
+          "driver": "Robin Keisner",
+          "pos": "DSQ",
+          "team": "audi",
+          "fastest_lap": false,
+          "quali_pos": 6,
+          "points": 0
+        },
+        {
+          "driver": "Jack TEF",
+          "pos": "DNF",
+          "team": null,
+          "fastest_lap": false,
+          "quali_pos": 14,
+          "points": 0
+        }
+      ]
     },
     {
       "id": "can_r9",
