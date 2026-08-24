@@ -1893,95 +1893,95 @@
           "pos": 1,
           "team": "var",
           "fastest_lap": false,
-          "quali_pos": null,
+          "quali_pos": 1,
           "points": 10
         },
         {
-          "driver": "Corentin Premier",
+          "driver": "marek_dubisar",
           "pos": 2,
-          "team": "art",
+          "team": "invicta",
           "fastest_lap": false,
-          "quali_pos": null,
+          "quali_pos": 3,
           "points": 8
         },
         {
-          "driver": "marek_dubisar",
+          "driver": "Corentin Premier",
           "pos": 3,
-          "team": "invicta",
+          "team": "art",
           "fastest_lap": false,
-          "quali_pos": null,
+          "quali_pos": 2,
           "points": 6
         },
         {
-          "driver": "Takumi Aizawa",
+          "driver": "Alex Thomspon",
           "pos": 4,
-          "team": "campos",
+          "team": "trident",
           "fastest_lap": false,
-          "quali_pos": null,
+          "quali_pos": 5,
           "points": 5
         },
         {
-          "driver": "Alex Thomspon",
+          "driver": "Tim Mittens",
           "pos": 5,
-          "team": "trident",
+          "team": "hitech",
           "fastest_lap": false,
-          "quali_pos": null,
+          "quali_pos": 6,
           "points": 4
         },
         {
-          "driver": "Tim Mittens",
+          "driver": "Jacob Vavro",
           "pos": 6,
-          "team": "hitech",
+          "team": "aix",
           "fastest_lap": false,
-          "quali_pos": null,
+          "quali_pos": 8,
           "points": 3
         },
         {
-          "driver": "Jaromir Grunt",
+          "driver": "Marcos Olmedo",
           "pos": 7,
-          "team": "aix",
+          "team": "campos",
           "fastest_lap": false,
-          "quali_pos": null,
+          "quali_pos": 9,
           "points": 2
         },
         {
-          "driver": "Jacob Vavro",
+          "driver": "Takumi Aizawa",
           "pos": 8,
-          "team": "aix",
+          "team": "campos",
           "fastest_lap": false,
-          "quali_pos": null,
+          "quali_pos": 4,
           "points": 1
         },
         {
-          "driver": "Marcos Olmedo",
+          "driver": "Charles Mounir",
           "pos": 9,
-          "team": "campos",
+          "team": "mp_motorsport",
           "fastest_lap": false,
-          "quali_pos": null,
+          "quali_pos": 12,
+          "points": 0
+        },
+        {
+          "driver": "Hamish Porter",
+          "pos": 10,
+          "team": "invicta",
+          "fastest_lap": false,
+          "quali_pos": 14,
           "points": 0
         },
         {
           "driver": "Andrew Price",
-          "pos": 10,
+          "pos": 11,
           "team": "prema",
           "fastest_lap": false,
-          "quali_pos": null,
+          "quali_pos": 10,
           "points": 0
         },
         {
           "driver": "Kodiak Callahan",
-          "pos": 11,
+          "pos": 12,
           "team": "dams",
           "fastest_lap": false,
-          "quali_pos": null,
-          "points": 0
-        },
-        {
-          "driver": "Charles Mounir",
-          "pos": 12,
-          "team": "mp_motorsport",
-          "fastest_lap": false,
-          "quali_pos": null,
+          "quali_pos": 11,
           "points": 0
         },
         {
@@ -1989,15 +1989,15 @@
           "pos": 13,
           "team": null,
           "fastest_lap": false,
-          "quali_pos": null,
+          "quali_pos": 13,
           "points": 0
         },
         {
-          "driver": "Hamish Porter",
+          "driver": "Kanata Rivington",
           "pos": 14,
-          "team": "invicta",
+          "team": "hitech",
           "fastest_lap": false,
-          "quali_pos": null,
+          "quali_pos": 17,
           "points": 0
         },
         {
@@ -2005,47 +2005,47 @@
           "pos": 15,
           "team": "art",
           "fastest_lap": false,
-          "quali_pos": null,
-          "points": 0
-        },
-        {
-          "driver": "Ricardo Kaka",
-          "pos": 16,
-          "team": null,
-          "fastest_lap": false,
-          "quali_pos": null,
-          "points": 0
-        },
-        {
-          "driver": "Kanata Rivington",
-          "pos": 17,
-          "team": "hitech",
-          "fastest_lap": false,
-          "quali_pos": null,
-          "points": 0
-        },
-        {
-          "driver": "Yann Asdelion",
-          "pos": 18,
-          "team": "dams",
-          "fastest_lap": false,
-          "quali_pos": null,
+          "quali_pos": 15,
           "points": 0
         },
         {
           "driver": "Brock Lee",
-          "pos": 19,
+          "pos": 16,
           "team": "mp_motorsport",
           "fastest_lap": false,
-          "quali_pos": null,
+          "quali_pos": 19,
+          "points": 0
+        },
+        {
+          "driver": "Ricardo Kaka",
+          "pos": 17,
+          "team": null,
+          "fastest_lap": false,
+          "quali_pos": 16,
+          "points": 0
+        },
+        {
+          "driver": "Jaromir Grunt",
+          "pos": 18,
+          "team": "aix",
+          "fastest_lap": false,
+          "quali_pos": 7,
           "points": 0
         },
         {
           "driver": "Daniel Park",
-          "pos": 20,
+          "pos": 19,
           "team": "trident",
           "fastest_lap": false,
-          "quali_pos": null,
+          "quali_pos": 20,
+          "points": 0
+        },
+        {
+          "driver": "Yann Asdelion",
+          "pos": 20,
+          "team": "dams",
+          "fastest_lap": false,
+          "quali_pos": 18,
           "points": 0
         }
       ]
@@ -2065,15 +2065,15 @@
           "pos": 1,
           "team": "hitech",
           "fastest_lap": false,
-          "quali_pos": null,
+          "quali_pos": 1,
           "points": 25
         },
         {
-          "driver": "Andrew Price",
+          "driver": "Jacob Vavro",
           "pos": 2,
-          "team": "prema",
+          "team": "aix",
           "fastest_lap": false,
-          "quali_pos": null,
+          "quali_pos": 5,
           "points": 18
         },
         {
@@ -2081,23 +2081,23 @@
           "pos": 3,
           "team": "dams",
           "fastest_lap": false,
-          "quali_pos": null,
+          "quali_pos": 3,
           "points": 15
         },
         {
-          "driver": "Jaromir Grunt",
+          "driver": "Ryan Melon",
           "pos": 4,
-          "team": "aix",
+          "team": "art",
           "fastest_lap": false,
-          "quali_pos": null,
+          "quali_pos": 8,
           "points": 12
         },
         {
-          "driver": "Jacob Vavro",
+          "driver": "marek_dubisar",
           "pos": 5,
-          "team": "aix",
+          "team": "invicta",
           "fastest_lap": false,
-          "quali_pos": null,
+          "quali_pos": 16,
           "points": 10
         },
         {
@@ -2105,119 +2105,119 @@
           "pos": 6,
           "team": "dams",
           "fastest_lap": false,
-          "quali_pos": null,
+          "quali_pos": 6,
           "points": 8
         },
         {
-          "driver": "Charles Mounir",
+          "driver": "Brock Lee",
           "pos": 7,
           "team": "mp_motorsport",
           "fastest_lap": false,
-          "quali_pos": null,
+          "quali_pos": 9,
           "points": 6
         },
         {
-          "driver": "Ryan Melon",
+          "driver": "Marcos Olmedo",
           "pos": 8,
-          "team": "art",
+          "team": "campos",
           "fastest_lap": false,
-          "quali_pos": null,
+          "quali_pos": 11,
           "points": 4
         },
         {
-          "driver": "Brock Lee",
+          "driver": "Vladimir Jaximus III",
           "pos": 9,
-          "team": "mp_motorsport",
+          "team": null,
           "fastest_lap": false,
-          "quali_pos": null,
+          "quali_pos": 10,
           "points": 2
         },
         {
-          "driver": "Vladimir Jaximus III",
+          "driver": "Andrew Price",
           "pos": 10,
-          "team": null,
+          "team": "prema",
           "fastest_lap": false,
-          "quali_pos": null,
+          "quali_pos": 2,
           "points": 1
         },
         {
-          "driver": "Marcos Olmedo",
-          "pos": 11,
-          "team": "campos",
-          "fastest_lap": false,
-          "quali_pos": null,
-          "points": 0
-        },
-        {
-          "driver": "Alex Thomspon",
-          "pos": 12,
-          "team": "trident",
-          "fastest_lap": false,
-          "quali_pos": null,
-          "points": 0
-        },
-        {
-          "driver": "Hamish Porter",
-          "pos": 13,
-          "team": "invicta",
-          "fastest_lap": false,
-          "quali_pos": null,
-          "points": 0
-        },
-        {
           "driver": "Ricardo Kaka",
-          "pos": 14,
+          "pos": 11,
           "team": null,
           "fastest_lap": false,
-          "quali_pos": null,
-          "points": 0
-        },
-        {
-          "driver": "Daniel Park",
-          "pos": 15,
-          "team": "trident",
-          "fastest_lap": false,
-          "quali_pos": null,
-          "points": 0
-        },
-        {
-          "driver": "marek_dubisar",
-          "pos": 16,
-          "team": "invicta",
-          "fastest_lap": false,
-          "quali_pos": null,
-          "points": 0
-        },
-        {
-          "driver": "Tim Mittens",
-          "pos": 17,
-          "team": "hitech",
-          "fastest_lap": false,
-          "quali_pos": null,
-          "points": 0
-        },
-        {
-          "driver": "Corentin Premier",
-          "pos": 18,
-          "team": "art",
-          "fastest_lap": false,
-          "quali_pos": null,
-          "points": 0
-        },
-        {
-          "driver": "Frederik Frid",
-          "pos": 19,
-          "team": "var",
-          "fastest_lap": false,
-          "quali_pos": null,
+          "quali_pos": 14,
           "points": 0
         },
         {
           "driver": "Takumi Aizawa",
-          "pos": 20,
+          "pos": 12,
           "team": "campos",
           "fastest_lap": false,
-          "quali_pos": null,
+          "quali_pos": 20,
+          "points": 0
+        },
+        {
+          "driver": "Alex Thomspon",
+          "pos": 13,
+          "team": "trident",
+          "fastest_lap": false,
+          "quali_pos": 12,
+          "points": 0
+        },
+        {
+          "driver": "Frederik Frid",
+          "pos": 14,
+          "team": "var",
+          "fastest_lap": false,
+          "quali_pos": 19,
+          "points": 0
+        },
+        {
+          "driver": "Hamish Porter",
+          "pos": 15,
+          "team": "invicta",
+          "fastest_lap": false,
+          "quali_pos": 13,
+          "points": 0
+        },
+        {
+          "driver": "Corentin Premier",
+          "pos": 16,
+          "team": "art",
+          "fastest_lap": false,
+          "quali_pos": 18,
+          "points": 0
+        },
+        {
+          "driver": "Daniel Park",
+          "pos": 17,
+          "team": "trident",
+          "fastest_lap": false,
+          "quali_pos": 15,
+          "points": 0
+        },
+        {
+          "driver": "Charles Mounir",
+          "pos": 18,
+          "team": "mp_motorsport",
+          "fastest_lap": false,
+          "quali_pos": 7,
+          "points": 0
+        },
+        {
+          "driver": "Tim Mittens",
+          "pos": 19,
+          "team": "hitech",
+          "fastest_lap": false,
+          "quali_pos": 17,
+          "points": 0
+        },
+        {
+          "driver": "Jaromir Grunt",
+          "pos": 20,
+          "team": "aix",
+          "fastest_lap": false,
+          "quali_pos": 4,
           "points": 0
         }
       ]
