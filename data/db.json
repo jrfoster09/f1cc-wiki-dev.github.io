@@ -2351,7 +2351,7 @@
         {
           "driver": "Quarter Kevu",
           "flag": "ee",
-          "points": 151,
+          "points": 291,
           "stints": [
             {
               "team": "vcarb",
@@ -2361,11 +2361,30 @@
           ],
           "team": "vcarb",
           "wins": 1,
-          "podiums": 4,
+          "podiums": 13,
           "pos": 1,
           "fastest_laps": 1,
           "poles": 0,
-          "races": 18
+          "races": 27
+        },
+        {
+          "driver": "Lukus Wright",
+          "flag": "us",
+          "points": 286,
+          "stints": [
+            {
+              "team": "vcarb",
+              "from_round": 1,
+              "to_round": 1
+            }
+          ],
+          "team": "vcarb",
+          "wins": 9,
+          "podiums": 11,
+          "pos": 2,
+          "fastest_laps": 0,
+          "poles": 0,
+          "races": 28
         },
         {
           "driver": "Eren Aygen",
@@ -2381,7 +2400,7 @@
           "team": "williams",
           "wins": 2,
           "podiums": 5,
-          "pos": 2,
+          "pos": 3,
           "fastest_laps": 2,
           "poles": 2,
           "races": 18
@@ -2400,7 +2419,7 @@
           "team": "ferrari",
           "wins": 2,
           "podiums": 6,
-          "pos": 3,
+          "pos": 4,
           "fastest_laps": 1,
           "poles": 2,
           "races": 18
@@ -2419,7 +2438,7 @@
           "team": "mclaren",
           "wins": 2,
           "podiums": 3,
-          "pos": 4,
+          "pos": 5,
           "fastest_laps": 0,
           "poles": 2,
           "races": 18
@@ -2438,7 +2457,7 @@
           "team": "mercedes",
           "wins": 1,
           "podiums": 5,
-          "pos": 5,
+          "pos": 6,
           "fastest_laps": 0,
           "poles": 0,
           "races": 18
@@ -2457,7 +2476,7 @@
           "team": "red_bull",
           "wins": 2,
           "podiums": 5,
-          "pos": 6,
+          "pos": 7,
           "fastest_laps": 0,
           "poles": 4,
           "races": 18
@@ -2476,25 +2495,6 @@
           "team": "mercedes",
           "wins": 2,
           "podiums": 4,
-          "pos": 7,
-          "fastest_laps": 0,
-          "poles": 0,
-          "races": 18
-        },
-        {
-          "driver": "Lukus Wright",
-          "flag": "us",
-          "points": 95,
-          "stints": [
-            {
-              "team": "vcarb",
-              "from_round": 1,
-              "to_round": 1
-            }
-          ],
-          "team": "vcarb",
-          "wins": 0,
-          "podiums": 2,
           "pos": 8,
           "fastest_laps": 0,
           "poles": 0,
@@ -2733,7 +2733,7 @@
         {
           "pos": 1,
           "team": "vcarb",
-          "points": 246,
+          "points": 577,
           "wins": 0,
           "podiums": 0
         },
