@@ -3096,25 +3096,8 @@
       "circuit": "Monza",
       "date": "2026",
       "sprint": false,
-      "status": "complete",
-      "results": [
-        {
-          "driver": "Lukus Wright",
-          "pos": 1,
-          "team": "vcarb",
-          "fastest_lap": false,
-          "quali_pos": null,
-          "points": 25
-        },
-        {
-          "driver": "Quarter Kevu",
-          "pos": 2,
-          "team": "vcarb",
-          "fastest_lap": false,
-          "quali_pos": null,
-          "points": 18
-        }
-      ]
+      "status": "upcoming",
+      "results": []
     },
     {
       "id": "aze_r20",
@@ -3124,25 +3107,8 @@
       "circuit": "Baku",
       "date": "2026",
       "sprint": false,
-      "status": "complete",
-      "results": [
-        {
-          "driver": "Lukus Wright",
-          "pos": 1,
-          "team": "vcarb",
-          "fastest_lap": false,
-          "quali_pos": null,
-          "points": 25
-        },
-        {
-          "driver": "Quarter Kevu",
-          "pos": 2,
-          "team": "vcarb",
-          "fastest_lap": false,
-          "quali_pos": null,
-          "points": 18
-        }
-      ]
+      "status": "upcoming",
+      "results": []
     },
     {
       "id": "sin_r21",
@@ -3152,25 +3118,8 @@
       "circuit": "Marina Bay",
       "date": "2026",
       "sprint": false,
-      "status": "complete",
-      "results": [
-        {
-          "driver": "Lukus Wright",
-          "pos": 1,
-          "team": "vcarb",
-          "fastest_lap": false,
-          "quali_pos": null,
-          "points": 25
-        },
-        {
-          "driver": "Quarter Kevu",
-          "pos": 2,
-          "team": "vcarb",
-          "fastest_lap": false,
-          "quali_pos": null,
-          "points": 18
-        }
-      ]
+      "status": "upcoming",
+      "results": []
     },
     {
       "id": "usas_r22",
@@ -3180,25 +3129,8 @@
       "circuit": "COTA Sprint",
       "date": "2026",
       "sprint": true,
-      "status": "complete",
-      "results": [
-        {
-          "driver": "Lukus Wright",
-          "pos": 1,
-          "team": "vcarb",
-          "fastest_lap": false,
-          "quali_pos": null,
-          "points": 8
-        },
-        {
-          "driver": "Quarter Kevu",
-          "pos": 2,
-          "team": "vcarb",
-          "fastest_lap": false,
-          "quali_pos": null,
-          "points": 7
-        }
-      ]
+      "status": "upcoming",
+      "results": []
     },
     {
       "id": "usa_r23",
@@ -3208,25 +3140,8 @@
       "circuit": "Circuit of the Americas",
       "date": "2026",
       "sprint": false,
-      "status": "complete",
-      "results": [
-        {
-          "driver": "Lukus Wright",
-          "pos": 1,
-          "team": "vcarb",
-          "fastest_lap": false,
-          "quali_pos": null,
-          "points": 25
-        },
-        {
-          "driver": "Quarter Kevu",
-          "pos": 2,
-          "team": "vcarb",
-          "fastest_lap": false,
-          "quali_pos": null,
-          "points": 18
-        }
-      ]
+      "status": "upcoming",
+      "results": []
     },
     {
       "id": "mex_r24",
@@ -3236,25 +3151,8 @@
       "circuit": "Hermanos Rodriguez",
       "date": "2026",
       "sprint": false,
-      "status": "complete",
-      "results": [
-        {
-          "driver": "Lukus Wright",
-          "pos": 1,
-          "team": "vcarb",
-          "fastest_lap": false,
-          "quali_pos": null,
-          "points": 25
-        },
-        {
-          "driver": "Quarter Kevu",
-          "pos": 2,
-          "team": "vcarb",
-          "fastest_lap": false,
-          "quali_pos": null,
-          "points": 18
-        }
-      ]
+      "status": "upcoming",
+      "results": []
     },
     {
       "id": "bras_r25",
@@ -3264,25 +3162,8 @@
       "circuit": "Interlagos Sprint",
       "date": "2026",
       "sprint": true,
-      "status": "complete",
-      "results": [
-        {
-          "driver": "Lukus Wright",
-          "pos": 1,
-          "team": "vcarb",
-          "fastest_lap": false,
-          "quali_pos": null,
-          "points": 8
-        },
-        {
-          "driver": "Quarter Kevu",
-          "pos": 2,
-          "team": "vcarb",
-          "fastest_lap": false,
-          "quali_pos": null,
-          "points": 7
-        }
-      ]
+      "status": "upcoming",
+      "results": []
     },
     {
       "id": "bra_r26",
@@ -3292,25 +3173,8 @@
       "circuit": "Interlagos",
       "date": "2026",
       "sprint": false,
-      "status": "complete",
-      "results": [
-        {
-          "driver": "Lukus Wright",
-          "pos": 1,
-          "team": "vcarb",
-          "fastest_lap": false,
-          "quali_pos": null,
-          "points": 25
-        },
-        {
-          "driver": "Quarter Kevu",
-          "pos": 2,
-          "team": "vcarb",
-          "fastest_lap": false,
-          "quali_pos": null,
-          "points": 18
-        }
-      ]
+      "status": "upcoming",
+      "results": []
     },
     {
       "id": "lvg_r27",
@@ -3320,25 +3184,8 @@
       "circuit": "Las Vegas Street",
       "date": "2026",
       "sprint": false,
-      "status": "complete",
-      "results": [
-        {
-          "driver": "Lukus Wright",
-          "pos": 1,
-          "team": "vcarb",
-          "fastest_lap": false,
-          "quali_pos": null,
-          "points": 25
-        },
-        {
-          "driver": "Quarter Kevu",
-          "pos": 2,
-          "team": "vcarb",
-          "fastest_lap": false,
-          "quali_pos": null,
-          "points": 18
-        }
-      ]
+      "status": "upcoming",
+      "results": []
     },
     {
       "id": "abu_r28",
@@ -3348,17 +3195,8 @@
       "circuit": "Yas Marina",
       "date": "2026",
       "sprint": false,
-      "status": "complete",
-      "results": [
-        {
-          "driver": "Lukus Wright",
-          "pos": "DNF",
-          "team": "vcarb",
-          "fastest_lap": false,
-          "quali_pos": null,
-          "points": 0
-        }
-      ]
+      "status": "upcoming",
+      "results": []
     }
   ]
 }
