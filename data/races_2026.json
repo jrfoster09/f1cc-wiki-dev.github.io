@@ -3440,8 +3440,169 @@
       "circuit": "Marina Bay",
       "date": "2026",
       "sprint": false,
-      "status": "upcoming",
-      "results": []
+      "status": "complete",
+      "results": [
+        {
+          "driver": "Jason Roy",
+          "pos": 1,
+          "team": "red_bull",
+          "fastest_lap": false,
+          "quali_pos": 8,
+          "points": 25
+        },
+        {
+          "driver": "Eren Aygen",
+          "pos": 2,
+          "team": "williams",
+          "fastest_lap": false,
+          "quali_pos": 3,
+          "points": 18
+        },
+        {
+          "driver": "Joshua Nathanial",
+          "pos": 3,
+          "team": "mclaren",
+          "fastest_lap": false,
+          "quali_pos": 9,
+          "points": 15
+        },
+        {
+          "driver": "Quarter Kevu",
+          "pos": 4,
+          "team": "vcarb",
+          "fastest_lap": false,
+          "quali_pos": 2,
+          "points": 12
+        },
+        {
+          "driver": "George Konstantaras",
+          "pos": 5,
+          "team": "haas",
+          "fastest_lap": false,
+          "quali_pos": 4,
+          "points": 10
+        },
+        {
+          "driver": "Julian Kondra",
+          "pos": 6,
+          "team": "alpine",
+          "fastest_lap": false,
+          "quali_pos": 5,
+          "points": 8
+        },
+        {
+          "driver": "michiii_maradoner",
+          "pos": 7,
+          "team": "alpine",
+          "fastest_lap": false,
+          "quali_pos": 7,
+          "points": 6
+        },
+        {
+          "driver": "Richard Hicks",
+          "pos": 8,
+          "team": "audi",
+          "fastest_lap": false,
+          "quali_pos": 19,
+          "points": 4
+        },
+        {
+          "driver": "Lukus Wright",
+          "pos": 9,
+          "team": "vcarb",
+          "fastest_lap": false,
+          "quali_pos": 20,
+          "points": 2
+        },
+        {
+          "driver": "Zhao Lei",
+          "pos": 10,
+          "team": "mclaren",
+          "fastest_lap": false,
+          "quali_pos": 12,
+          "points": 1
+        },
+        {
+          "driver": "Robin Keisner",
+          "pos": 11,
+          "team": "audi",
+          "fastest_lap": false,
+          "quali_pos": 10,
+          "points": 0
+        },
+        {
+          "driver": "Wesley Vandesteene",
+          "pos": 12,
+          "team": "mercedes",
+          "fastest_lap": false,
+          "quali_pos": 18,
+          "points": 0
+        },
+        {
+          "driver": "Lucas Koopman",
+          "pos": 13,
+          "team": "williams",
+          "fastest_lap": false,
+          "quali_pos": 17,
+          "points": 0
+        },
+        {
+          "driver": "Philippe Verhaeren",
+          "pos": 14,
+          "team": "red_bull",
+          "fastest_lap": false,
+          "quali_pos": 13,
+          "points": 0
+        },
+        {
+          "driver": "Maikel Zwart",
+          "pos": 15,
+          "team": "mercedes",
+          "fastest_lap": false,
+          "quali_pos": 15,
+          "points": 0
+        },
+        {
+          "driver": "Riley Swansson",
+          "pos": 16,
+          "team": "haas",
+          "fastest_lap": false,
+          "quali_pos": 14,
+          "points": 0
+        },
+        {
+          "driver": "eetu_vaisanen",
+          "pos": "DNF",
+          "team": "ferrari",
+          "fastest_lap": false,
+          "quali_pos": 6,
+          "points": 0
+        },
+        {
+          "driver": "Afonso Cachinho",
+          "pos": "DNF",
+          "team": "ferrari",
+          "fastest_lap": false,
+          "quali_pos": 11,
+          "points": 0
+        },
+        {
+          "driver": "Sam Fakt",
+          "pos": "DSQ",
+          "team": "aston_martin",
+          "fastest_lap": false,
+          "quali_pos": 1,
+          "points": 0
+        },
+        {
+          "driver": "Sarah Springfield",
+          "pos": "DSQ",
+          "team": "aston_martin",
+          "fastest_lap": false,
+          "quali_pos": 16,
+          "points": 0
+        }
+      ]
     },
     {
       "id": "usas_r22",
